@@ -6,7 +6,7 @@ const Dashboard = () => {
         <div>
 
             <div class="container-scroller">
-                <div class="row p-0 m-0 proBanner" id="proBanner">
+                {/* <div class="row p-0 m-0 proBanner" id="proBanner">
                     <div class="col-md-12 p-0 m-0">
                         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
                             <div class="ps-lg-1">
@@ -23,7 +23,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* <!-- partial:partials/_navbar.html --> */}
                 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">

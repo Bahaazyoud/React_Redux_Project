@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,3 +34,11 @@ Route::get('users/{id}',[UserController::class , 'getInfo']);
 // http://127.0.0.1:8000/api/users/1
 Route::post('update/{id}',[UserController::class , 'update']);
 Route::get('getuser/{id}',[UserController::class , 'getUser']);
+
+
+//post
+
+Route::get('post',[PostController::class , ' PostAPI']);
+// http://127.0.0.1:8000/api/post
+Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
+// http://127.0.0.1:8000/api/post/1

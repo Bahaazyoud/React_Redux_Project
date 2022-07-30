@@ -36,9 +36,21 @@ Route::post('update/{id}',[UserController::class , 'update']);
 Route::get('getuser/{id}',[UserController::class , 'getUser']);
 
 
-//post
+Route::get('Users',[UserController::class , 'Users']);
 
-Route::get('post',[PostController::class , ' PostAPI']);
+
+
+Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
+
+
+
+//post
+Route::get('post',[PostController::class , 'index']);
+Route::post('post',[PostController::class , 'store']);
 // http://127.0.0.1:8000/api/post
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 // http://127.0.0.1:8000/api/post/1
+
+
+
+

@@ -1,15 +1,32 @@
-// import Dashboard from "./admin/Dashboard";
-//  import { Login } from "./pages/login";
-// import { Registeration } from "./pages/registeration";
+ 
+import Dashboard from "./admin/Dashboard";
+import ShowUsers from "./admin/showUsers";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+ 
+ 
 
  import { Login } from "./pages/Login/login";
 
 function App() {
   return (
-    <div>
-      <Login/>
+    <div >
+    
+    <Router>
+
+
+      <Routes>
+      <Route path="/" element={<Dashboard/>} />
+
+        <Route path="/Users" element={<ShowUsers/>} />
         
+
+      </Routes>
+
+    </Router>
+
+   
     </div>
+ 
   );
 }
 

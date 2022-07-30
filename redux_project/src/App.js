@@ -2,10 +2,8 @@
 import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
- 
- 
-
- import { Login } from "./pages/Login/login";
+ import Register  from "./pages/Login/Register";
+  import  Login  from "./pages/Login/Login";
 
 function App() {
   return (
@@ -19,8 +17,12 @@ function App() {
 
         <Route path="/Users" element={<ShowUsers/>} />
         
-
+        <Route path="/Register" element={<Register/>} />
+         
+        <Route path="/Login" element={<Login/>} />
       </Routes>
+
+
 
     </Router>
 

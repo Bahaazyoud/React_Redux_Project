@@ -26,6 +26,8 @@ class PostController extends Controller
         return $single_post;
     }
 
+    
+
 
 
 

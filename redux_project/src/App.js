@@ -1,4 +1,7 @@
+ 
 import Dashboard from "./admin/Dashboard";
+import ShowUsers from "./admin/showUsers";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  
  
 
@@ -6,7 +9,21 @@ import Dashboard from "./admin/Dashboard";
 function App() {
   return (
     <div >
-      <Dashboard/>
+    
+    <Router>
+
+
+      <Routes>
+      <Route path="/" element={<Dashboard/>} />
+
+        <Route path="/Users" element={<ShowUsers/>} />
+        
+
+      </Routes>
+
+    </Router>
+
+   
     </div>
   );
 }

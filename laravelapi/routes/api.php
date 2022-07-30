@@ -49,4 +49,12 @@ Route::get('post',[PostController::class , 'index']);
 Route::post('post',[PostController::class , 'store']);
 // http://127.0.0.1:8000/api/post
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
+<<<<<<< HEAD
 // http://127.0.0.1:8000/api/post/1
+=======
+// http://127.0.0.1:8000/api/post/1
+
+
+
+
+>>>>>>> ca458265db265826ac7269d908d99f11587ebb5d

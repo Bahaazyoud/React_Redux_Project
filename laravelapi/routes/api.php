@@ -37,8 +37,8 @@ Route::get('getuser/{id}',[UserController::class , 'getUser']);
 
 
 //post
-
-Route::get('post',[PostController::class , ' PostAPI']);
+Route::get('post',[PostController::class , 'index']);
+Route::post('post',[PostController::class , 'store']);
 // http://127.0.0.1:8000/api/post
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 // http://127.0.0.1:8000/api/post/1

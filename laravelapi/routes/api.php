@@ -36,9 +36,25 @@ Route::post('update/{id}',[UserController::class , 'update']);
 Route::get('getuser/{id}',[UserController::class , 'getUser']);
 
 
+Route::get('Users',[UserController::class , 'Users']);
+
+
+
+Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
+
+
+
 //post
 Route::get('post',[PostController::class , 'index']);
 Route::post('post',[PostController::class , 'store']);
 // http://127.0.0.1:8000/api/post
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
+<<<<<<< HEAD
 // http://127.0.0.1:8000/api/post/1
+=======
+// http://127.0.0.1:8000/api/post/1
+
+
+
+
+>>>>>>> e44e198930f2b32fe37403590ae740dbb7eb8668

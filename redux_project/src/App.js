@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  
 import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
@@ -30,6 +31,30 @@ function App() {
     </div>
  
   );
+=======
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import {Login} from "./pages/login";
+import Registeration from "./pages/registeration";
+import Dashboard from "./admin/Dashboard";
+import ShowUsers from "./admin/showUsers";
+ 
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/register" element={<Registeration />} />
+        <Route exact path="/Users" element={<ShowUsers/>} />
+      </Routes>
+    </Router>
+  )
+>>>>>>> 92d89c1d706010298b47208f4d2e80fcf4b3ad3b
 }
+ 
+ 
 
 export default App;

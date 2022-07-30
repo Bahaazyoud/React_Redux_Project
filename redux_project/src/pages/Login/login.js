@@ -1,8 +1,49 @@
-import React from 'react'
+import React, { useContext} from "react";
+import { useState } from "react";
+import axios from "axios";
+import { userContext } from "../../App";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export const Login = () => {
+const Login = () => {
+  const navigate = useNavigate();
 
-    
+  const { userData, setUserData } = useContext(userContext)
+
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+
+  });
+
+  const [error, setError] = useState([])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios({
+      method: "post",
+      url: "http://localhost:8000/api/login",
+      data: user
+    })
+      .then((res) => {
+        setUserData(res.data)
+
+        if (res.data.errors) {
+          setError(res.data.errors);
+        } else {
+          sessionStorage.setItem("user_id", res.data.id);
+          navigate("/");
+        }
+
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+      });
+  };
+
+
+  console.log(userData)
     return (
         <div>
 
@@ -13,7 +54,7 @@ export const Login = () => {
                             <div class="col-lg-4 mx-auto">
                                 <div class="auth-form-light text-left p-5">
                                     <div class="brand-logo">
-                                        <img src="../../assets/images/logo.svg"/>
+                                        {/* <img src="../../assets/images/logo.svg"/> */}
                                     </div>
                                     <h4>Hello! let's get started</h4>
                                     <h6 class="font-weight-light">Sign in to continue.</h6>
@@ -32,7 +73,7 @@ export const Login = () => {
                                                 <label class="form-check-label text-muted">
                                                     <input type="checkbox" class="form-check-input"/> Keep me signed in </label>
                                             </div>
-                                            <a href="#" class="auth-link text-black">Forgot password?</a>
+                                            {/* <a href="#" class="auth-link text-black">Forgot password?</a> */}
                                         </div>
                                         <div class="mb-2">
                                             <button type="button" class="btn btn-block btn-facebook auth-form-btn">

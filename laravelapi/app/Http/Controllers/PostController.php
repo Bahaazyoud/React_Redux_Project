@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 
@@ -60,19 +61,14 @@ class PostController extends Controller
             'image'=>$request->image,
             'user_id'=>$request->user_id
         ]);
-        if (isset($request->image)) {
-            if ($request->hasfile('user_img')) {
-
-                $img = $request->file('user_img');
-                $imgname = $img->getClientOriginalName();
-                $img->move('user_img/',$imgname);
-
-                $request->session()->put('user_img', $imgname);
-            }
-        }
 
     }
-
+    public function join(Request $request)
+    {
+        $postInfo= DB::table('posts')
+        ->join('users', 'posts.user_id', '=', 'users.id')->get();
+        return $postInfo;
+    }
     /**
      * Display the specified resource.
      *

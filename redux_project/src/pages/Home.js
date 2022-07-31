@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
+import { io } from "socket.io-client";
 import axios from "axios";
 export const Home = () => {
   const [res,setRes] = useState();
   const [userid,setuserid] = useState();
+  const [liked,setLiked] = useState(false);
+  const [count,setCount] = useState(0);
   useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/api/post').then(res=>{
+    const soket = io("http://localhost:5000")
+    console.log(soket.on("firstEvent",msg=>console.log(msg)));
+  },[])
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/api/join').then(res=>{
       console.log(res);
       setRes(res.data)
     }).catch(error=>console.log(error));
@@ -28,6 +35,14 @@ export const Home = () => {
   const valueHandler = (event) => {
     setFormValue({ ...data, [event.target.name]: event.target.value });
   };
+  const likeHandleNotification = () => {
+    setLiked(false);
+    setCount(count-1);
+  }
+  const handleNotification = () => {
+    setLiked(true);
+    setCount(count+1);
+  }
   return (
     <div>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -613,7 +628,7 @@ export const Home = () => {
                                 <img src="images/resources/friend-avatar10.jpg" alt="" />
                               </figure>
                               <div className="friend-name">
-                                <ins><a href="time-line.html" title>Janice Griffith</a></ins>
+                                <ins><a href="time-line.html" title>{post.name}</a></ins>
                                 <span>published: june,2 2018 19:PM</span>
                               </div>
                               <div className="post-meta">
@@ -633,16 +648,7 @@ export const Home = () => {
                                       </span>
                                     </li>
                                     <li>
-                                      <span className="like" data-toggle="tooltip" title="like">
-                                        <i className="ti-heart" />
-                                        <ins>2.2k</ins>
-                                      </span>
-                                    </li>
-                                    <li>
-                                      <span className="dislike" data-toggle="tooltip" title="dislike">
-                                        <i className="ti-heart-broken" />
-                                        <ins>200</ins>
-                                      </span>
+                                        {liked ? <span className="like" data-toggle="tooltip" title="like"><i className="ti-heart" onClick={likeHandleNotification}/><ins>{count}</ins></span> : <span className="dislike" data-toggle="tooltip" title="dislike"><i className="ti-heart-broken" onClick={handleNotification}/><ins>{count}</ins></span>}
                                     </li>
                                     <li className="social-media">
                                       <div className="menu">

@@ -36,11 +36,6 @@ Route::post('update/{id}',[UserController::class , 'update']);
 Route::get('getuser/{id}',[UserController::class , 'getUser']);
 
 
-Route::get('Users',[UserController::class , 'Users']);
-
-
-
-Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
 
 
 
@@ -50,7 +45,11 @@ Route::post('post',[PostController::class , 'store']);
 // http://127.0.0.1:8000/api/post
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 // http://127.0.0.1:8000/api/post/1
+// http://127.0.0.1:8000/api/post/1
 
 
 
 
+// *****************Admin Router ********************
+Route::get('Users',[UserController::class , 'Users']);
+Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);

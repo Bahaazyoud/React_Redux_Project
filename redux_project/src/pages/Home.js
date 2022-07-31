@@ -575,7 +575,6 @@ export const Home=()=>{
                             <div className="newpst-input">
                               <form onSubmit={Submit}>
                                 <textarea rows={2} placeholder="write something" id='content' value={data.content} name='content' onChange={valueHandler}/>
-                                <input type='hidden'/>
                                 <button type='submit'>Post</button>
                               </form>
                             </div>

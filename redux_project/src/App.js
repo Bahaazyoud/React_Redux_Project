@@ -1,16 +1,20 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
-import {Login} from "./pages/login";
-import Registeration from "./pages/registeration";
-import Dashboard from "./admin/Dashboard";
+ import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
 import Posts from "./admin/Posts";
 import AddUser from "./admin/redux/AddUser";
  
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+ import Register  from "./pages/Login/Register";
+import  Login  from "./pages/Login/login";
+import { Home } from "./pages/Home";
 function App() {
   return (
+    <div >
+    
     <Router>
+
+
       <Routes>
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/register" element={<Registeration />} />
@@ -22,10 +26,15 @@ function App() {
         <Route exact path="/" element={<Home />} />
 
       </Routes>
+
+
+
     </Router>
-  )
+
+   
+    </div>
+ 
+  );
 }
- 
- 
 
 export default App;

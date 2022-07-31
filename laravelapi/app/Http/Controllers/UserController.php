@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -53,7 +53,6 @@ class UserController extends Controller
 
     public function registerAPI(Request $request)
     {
-
         $validator = Validator::make(
             $request->all(),
             [
@@ -63,13 +62,12 @@ class UserController extends Controller
                 'phone' => 'required|min:10|max:10',
                 'image' => 'required|max:5048',
             ]
+
         );
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
         }
-
-
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -77,7 +75,6 @@ class UserController extends Controller
         $user->image = $request->image;
         $user->password = Hash::make($request->input('password'));
         $user->save();
-
         return response($user, 201);
     }
 
@@ -119,6 +116,9 @@ class UserController extends Controller
     }
 
 
+
+
+
     public function Users()
     {
         $users = User::all();
@@ -133,3 +133,4 @@ class UserController extends Controller
          return redirect()->back()->with('success','Application has been ignored');
     }
 }
+

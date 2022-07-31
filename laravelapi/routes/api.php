@@ -44,9 +44,6 @@ Route::get('post',[PostController::class , 'index']);
 Route::post('post',[PostController::class , 'store']);
 // http://127.0.0.1:8000/api/post
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
-<<<<<<< HEAD
-// http://127.0.0.1:8000/api/post/1
-=======
 // http://127.0.0.1:8000/api/post/1
 // http://127.0.0.1:8000/api/post/1
 
@@ -56,4 +53,3 @@ Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 // *****************Admin Router ********************
 Route::get('Users',[UserController::class , 'Users']);
 Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
->>>>>>> 0f0abf2de664f9f722949d933fa79c6e5c4ac064

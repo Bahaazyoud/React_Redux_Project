@@ -17,11 +17,32 @@ const App = () => {
           <Route exact path="/Users" element={<ShowUsers />} />
           <Route exact path="/addUser" element={<AddUser />} />
 
+<<<<<<< HEAD
           <Route exact path="/Posts" element={<Posts />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
       </Router>
+=======
+
+      <Routes>
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/Users" element={<ShowUsers/>} />
+        <Route exact path="/addUser" element={<AddUser/>} />
+
+        <Route exact path="/Posts" element={<Posts/>} />
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/" element={<Home />} />
+
+      </Routes>
+
+
+
+    </Router>
+
+   
+>>>>>>> c38974a6e04fcbedf8242f48cbffdbf31b5bad8a
     </div>
   );
 };

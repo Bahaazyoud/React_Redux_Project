@@ -114,4 +114,23 @@ class UserController extends Controller
         $users = User::all();
         return $users;
     }
+<<<<<<< HEAD
 }
+=======
+    
+
+    public function Users()
+    {
+        $users = User::all();
+        return $users;
+    }
+
+
+    public function destroy($user)
+    {
+        $app=User::find($user);
+         $app->delete();
+         return redirect()->back()->with('success','Application has been ignored');
+    }
+}
+>>>>>>> 0f0abf2de664f9f722949d933fa79c6e5c4ac064

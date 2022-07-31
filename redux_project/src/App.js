@@ -1,5 +1,4 @@
- 
-import Dashboard from "./admin/Dashboard";
+ import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  import Register  from "./pages/Login/Register";
@@ -31,7 +30,5 @@ function App() {
  
   );
 }
- 
- 
 
 export default App;

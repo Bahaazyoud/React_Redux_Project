@@ -1,9 +1,10 @@
 import React, { useContext} from "react";
 import { useState } from "react";
 import axios from "axios";
-import userContext  from "../../App";
+import { userContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -45,14 +46,14 @@ const Login = () => {
   console.log(userData)
   return (
     <>
-    
+     
       <section className="login-form page-section-ptb">
-        <div className="container">
+        <div className="container-scroller">
           <div className="row">
             <div className="col-md-12">
               <div className="section-title">
                 <h2>Login To Your Account</h2>
-                <div style={{ color: "red" }}>{error[0]}</div>
+                <div style={{ color: "#9a55ff" }}>{error[0]}</div>
                 <div className="separator"></div>
               </div>
             </div>
@@ -109,7 +110,7 @@ const Login = () => {
                     <div className="remember-checkbox mb-4">
                       <input type="checkbox" name="one" id="one" />
                       <label for="one"> Remember me</label>
-                      <a href="#" className="float-end">
+                      <a href="#" className="float-end" style={{ color: "#9a55ff" }}>
                         Forgot Password?
                       </a>
                     </div>
@@ -119,14 +120,14 @@ const Login = () => {
                       {" "}
                       Log in{" "}
                     </a> */}
-                    <button className="btn button red btn-block" type="submit">
+                    <button className="btn button red btn-block" type="submit" style={{backgroundColor:"#9a55ff"}}>
                       {" "}
                       Login{" "}
                     </button>
                   </div>
                   <br />
                   <span>DON’T HAVE AN ACCOUNT? </span>
-                  <a href="/register" style={{ color: "red" }}>
+                  <a href="/register" style={{ color: "#9a55ff" }}>
                     Sign Up
                   </a>
                 </form>

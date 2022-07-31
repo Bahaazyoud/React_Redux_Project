@@ -1,11 +1,33 @@
 import { useState } from "react";
 import axios from "axios";
+
 export const Home = () => {
+  const [comment, setComment] = useState({
+    text: null,
+    user_id: localStorage.getItem("user_id"),
+  });
+  const commentChangeHandler = (e) => {
+    setComment({ ...comment, text: e.target.value });
+    console.log(comment);
+  };
+  window.axios = require("axios");
+  const commentHandler = (e) => {
+    e.preventDefault();
+    if (!comment == "") {
+      console.log("HISHD");
+      const api = {
+        text: comment.text,
+        user_id: comment.user_id,
+      };
+      axios.post("http://127.0.0.1:8000/api/comment", api);
+    }
+  };
+
   const [data, setFormValue] = useState({
     content: null,
     user_id: 1,
   });
-  window.axios = require("axios");
+
   const Submit = (event) => {
     event.preventDefault();
     const api = {
@@ -1466,10 +1488,25 @@ export const Home = () => {
                                     />
                                   </div>
                                   <div className="post-comt-box">
-                                    <form method="post">
+                                    <form
+                                      onSubmit={commentHandler}
+                                      method="post"
+                                    >
                                       <textarea
+                                        name="comment"
                                         placeholder="Post your comment"
-                                        defaultValue={""}
+                                        defaultValue={comment.text}
+                                        onChange={commentChangeHandler}
+                                      />
+                                      <input
+                                        type="hidden"
+                                        value={localStorage.getItem("user_id")}
+                                        name="user_id"
+                                      />
+                                      <input
+                                        type="hidden"
+                                        value="1"
+                                        name="post_id"
                                       />
                                       <button
                                         style={{

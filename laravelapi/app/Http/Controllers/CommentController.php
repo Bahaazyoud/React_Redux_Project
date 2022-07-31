@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -24,7 +25,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Comment::create([
+            'text'=>$request->text,
+            'user_id'=>$request->user_id
+        ]);
+        return Comment::create($request->all());
     }
 
     /**

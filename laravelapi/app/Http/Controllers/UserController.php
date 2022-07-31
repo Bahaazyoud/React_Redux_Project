@@ -132,5 +132,28 @@ class UserController extends Controller
          $app->delete();
          return redirect()->back()->with('success','Application has been ignored');
     }
+    public function addUser($request)
+    {
+       
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'image'=>$request->image,
+
+        ]);
+        return User::create($request->all());
+     
+        // $$user = new User();
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->phone = $request->phone;
+        // $user->image = $request->image;
+        // // $user->password = Hash::make($request->input('password'));
+        // $user->save();
+        // return response($user, 201);
+         
+    }
+   
 }
 

@@ -96,12 +96,9 @@ export const deletePost= (id) => {
 export const addUser = (user) => {
 
     return function (dispatch) {
-        axios.post('http://127.0.0.1:8000/api/register',user).then((resp) => {
+        axios.post('http://127.0.0.1:8000/api/addUser',user).then((resp) => {
             // console.log('fetched');
-            dispatch(userAdded());
-
-
-           
+            dispatch(userAdded());         
 
         }).catch((error) => console.log(error));
     }

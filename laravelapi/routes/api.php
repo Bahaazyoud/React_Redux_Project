@@ -56,3 +56,5 @@ Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
 
 Route::get('/Posts',[PostController::class , 'Posts']);
 Route::delete('/deletePost/{id}', [PostController::class,'destroy']);
+
+Route::post('/addUser', [UserController::class, 'addUser']);

@@ -45,7 +45,7 @@ const Dashboard = () => {
                             </form>
                         </div>
                         <ul class="navbar-nav navbar-nav-right">
-                            <li class="nav-item nav-profile dropdown">
+                            {/* <li class="nav-item nav-profile dropdown">
                                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="nav-profile-img">
                                         <img src="assets/images/faces/face1.jpg" alt="image" />
@@ -62,7 +62,7 @@ const Dashboard = () => {
                                     <a class="dropdown-item" href="#">
                                         <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
                                 </div>
-                            </li>
+                            </li> */}
                             <li class="nav-item d-none d-lg-block full-screen-link">
                                 <a class="nav-link">
                                     <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -180,24 +180,24 @@ const Dashboard = () => {
                             <li class="nav-item nav-profile">
                                 <a href="#" class="nav-link">
                                     <div class="nav-profile-image">
-                                        <img src="assets/images/faces/face1.jpg" alt="profile" />
+                                        <img src="https://caillouetland.com/wp-content/uploads/2017/07/avatar-blank.png" alt="profile" />
                                         <span class="login-status online"></span>
                                         {/* <!--change to offline or busy as needed--> */}
                                     </div>
                                     <div class="nav-profile-text d-flex flex-column">
-                                        <span class="font-weight-bold mb-2">David Grey. H</span>
-                                        <span class="text-secondary text-small">Project Manager</span>
+                                        <span class="font-weight-bold mb-2">Admin Name</span>
+                                        <span class="text-secondary text-small">Admin Role</span>
                                     </div>
                                     <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">
+                                <a class="nav-link" href="../dashboard">
                                     <span class="menu-title">Dashboard</span>
                                     <i class="mdi mdi-home menu-icon"></i>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {/* <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                                     <span class="menu-title">Basic UI Elements</span>
                                     <i class="menu-arrow"></i>
@@ -205,36 +205,36 @@ const Dashboard = () => {
                                 </a>
                                 <div class="collapse" id="ui-basic">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li> */}
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/icons/mdi.html">
-                                    <span class="menu-title">Icons</span>
+                                <a class="nav-link" href="../Users">
+                                    <span class="menu-title">Users</span>
                                     <i class="mdi mdi-contacts menu-icon"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/forms/basic_elements.html">
-                                    <span class="menu-title">Forms</span>
+                                <a class="nav-link" href="../Posts">
+                                    <span class="menu-title">Posts</span>
                                     <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/charts/chartjs.html">
-                                    <span class="menu-title">Charts</span>
-                                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                                <a class="nav-link" href="../Comments">
+                                    <span class="menu-title">Comments</span>
+                                    <i class="mdi mdi-comment menu-icon"></i>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/tables/basic-table.html">
+                            {/* <li class="nav-item">
+                                <a class="nav-link" href="">
                                     <span class="menu-title">Tables</span>
                                     <i class="mdi mdi-table-large menu-icon"></i>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> */}
+                            {/* <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                                     <span class="menu-title">Sample Pages</span>
                                     <i class="menu-arrow"></i>
@@ -242,15 +242,13 @@ const Dashboard = () => {
                                 </a>
                                 <div class="collapse" id="general-pages">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
+                                        
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="nav-item sidebar-actions">
+                            </li> */}
+                            {/* <li class="nav-item sidebar-actions">
                                 <span class="nav-link">
                                     <div class="border-bottom">
                                         <h6 class="font-weight-normal mb-3">Projects</h6>
@@ -266,7 +264,7 @@ const Dashboard = () => {
                                         </ul>
                                     </div>
                                 </span>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                     {/* <!-- partial --> */}

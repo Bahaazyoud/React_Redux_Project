@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -56,3 +57,6 @@ Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
 
 Route::get('/Posts',[PostController::class , 'Posts']);
 Route::delete('/deletePost/{id}', [PostController::class,'destroy']);
+
+Route::get('/Comments',[CommentController::class , 'Comments']);
+Route::delete('/deleteComment/{id}', [CommentController::class,'destroy']);

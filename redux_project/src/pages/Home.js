@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const Home = () => {
   const [comment, setComment] = useState({
-    text: null,
+    text: "",
     user_id: localStorage.getItem("user_id"),
   });
   const commentChangeHandler = (e) => {
@@ -14,7 +14,6 @@ export const Home = () => {
   const commentHandler = (e) => {
     e.preventDefault();
     if (!comment == "") {
-      console.log("HISHD");
       const api = {
         text: comment.text,
         user_id: comment.user_id,

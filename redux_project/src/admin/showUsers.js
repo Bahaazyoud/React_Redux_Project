@@ -237,7 +237,7 @@ const ShowUsers = () => {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../">
+                                <a class="nav-link" href="../Comments">
                                     <span class="menu-title">Comments</span>
                                     <i class="mdi mdi-comment menu-icon"></i>
                                 </a>

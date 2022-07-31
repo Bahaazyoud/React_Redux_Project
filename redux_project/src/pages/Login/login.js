@@ -1,22 +1,21 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { userContext } from "../../App";
+// import { userContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const { userData, setUserData } = useContext(userContext)
+  // const { userData, setUserData } = useContext(userContext)
 
   const [user, setUser] = useState({
     email: "",
     password: "",
-
   });
 
-  const [error, setError] = useState([])
+  const [error, setError] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,10 +23,10 @@ const Login = () => {
     axios({
       method: "post",
       url: "http://localhost:8000/api/login",
-      data: user
+      data: user,
     })
       .then((res) => {
-        setUserData(res.data)
+        // setUserData(res.data);
 
         if (res.data.errors) {
           setError(res.data.errors);
@@ -35,18 +34,15 @@ const Login = () => {
           sessionStorage.setItem("user_id", res.data.id);
           navigate("/");
         }
-
       })
       .catch((error) => {
         console.log(error.response.data.message);
       });
   };
 
-
-  console.log(userData)
+  // console.log(userData);
   return (
     <>
-     
       <section className="login-form page-section-ptb">
         <div className="container-scroller">
           <div className="row">
@@ -110,7 +106,11 @@ const Login = () => {
                     <div className="remember-checkbox mb-4">
                       <input type="checkbox" name="one" id="one" />
                       <label for="one"> Remember me</label>
-                      <a href="#" className="float-end" style={{ color: "#9a55ff" }}>
+                      <a
+                        href="#"
+                        className="float-end"
+                        style={{ color: "#9a55ff" }}
+                      >
                         Forgot Password?
                       </a>
                     </div>
@@ -120,7 +120,11 @@ const Login = () => {
                       {" "}
                       Log in{" "}
                     </a> */}
-                    <button className="btn button red btn-block" type="submit" style={{backgroundColor:"#9a55ff"}}>
+                    <button
+                      className="btn button red btn-block"
+                      type="submit"
+                      style={{ backgroundColor: "#9a55ff" }}
+                    >
                       {" "}
                       Login{" "}
                     </button>
@@ -139,4 +143,4 @@ const Login = () => {
     </>
   );
 };
-export default Login
+export default Login;

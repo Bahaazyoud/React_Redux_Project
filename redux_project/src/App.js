@@ -1,15 +1,13 @@
- import Dashboard from "./admin/Dashboard";
+import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
 import Posts from "./admin/Posts";
 import AddUser from "./admin/redux/AddUser";
- 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
- import Register  from "./pages/Login/Register";
-import  Login  from "./pages/Login/login";
+import Register from "./pages/Login/Register";
+import Login from "./pages/Login/login";
 import { Home } from "./pages/Home";
- 
- 
+import Comments from "./admin/Comments";
 function App() {
   return (
     <div >
@@ -22,8 +20,7 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/Users" element={<ShowUsers/>} />
         <Route exact path="/addUser" element={<AddUser/>} />
-       
-
+        <Route exact path="/comments" element={<Comments/>} />
 
         <Route exact path="/Posts" element={<Posts/>} />
         <Route exact path="/login" element={<Login/>} />
@@ -37,8 +34,7 @@ function App() {
 
    
     </div>
- 
   );
-}
+};
 
 export default App;

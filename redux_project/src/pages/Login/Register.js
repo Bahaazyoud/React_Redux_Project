@@ -1,7 +1,9 @@
-import React, { Component }from "react";
+import React, { Component, useEffect }from "react";
 import { useState} from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+// const user_id = JSON.parse(localStorage.setItem("id"));
+
 const Register = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -35,7 +37,7 @@ const Register = () => {
           setError(res.data.errors);
         } else {
           alert("Successfully Regiseration");
-          localStorage.setItem("user_id", user.email);
+          localStorage.setItem("user_id", user.id);
           navigate("/");
         }
       })
@@ -44,6 +46,9 @@ const Register = () => {
       });
   };
 
+  useEffect(() => {
+
+  },[])
   return (
     <>
       {/* <section className="inner-intro bg-1 bg-overlay-black-70">

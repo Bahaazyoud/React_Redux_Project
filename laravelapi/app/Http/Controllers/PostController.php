@@ -55,7 +55,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return Post::create($request->all());
+        Post::create([
+            'content'=>$request->content,
+            'image'=>$request->image,
+            'user_id'=>$request->user_id
+        ]);
+        if (isset($request->image)) {
+            if ($request->hasfile('user_img')) {
+
+                $img = $request->file('user_img');
+                $imgname = $img->getClientOriginalName();
+                $img->move('user_img/',$imgname);
+
+                $request->session()->put('user_img', $imgname);
+            }
+        }
 
     }
 

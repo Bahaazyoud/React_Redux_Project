@@ -1,5 +1,5 @@
 import React, { Component }from "react";
-import { useState} from "react";
+import { useState,useEffect} from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 const Register = () => {
@@ -36,6 +36,7 @@ const Register = () => {
         } else {
           alert("Successfully Regiseration");
           localStorage.setItem("user_id", user.email);
+
           navigate("/");
         }
       })

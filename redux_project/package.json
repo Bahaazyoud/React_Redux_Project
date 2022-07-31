@@ -7,10 +7,6 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
-<<<<<<< HEAD
-=======
-    "bootstrap": "^5.2.0",
->>>>>>> 92d89c1d706010298b47208f4d2e80fcf4b3ad3b
     "chart.js": "^3.8.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",

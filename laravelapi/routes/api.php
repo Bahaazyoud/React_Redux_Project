@@ -51,5 +51,8 @@ Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 
 
 // *****************Admin Router ********************
-Route::get('Users',[UserController::class , 'Users']);
+Route::get('/Users',[UserController::class , 'Users']);
 Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
+
+Route::get('/Posts',[PostController::class , 'Posts']);
+Route::delete('/deletePost/{id}', [PostController::class,'destroy']);

@@ -4,28 +4,29 @@ import './style.css'
 import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteUser, loadUsers } from './redux/actions';
+import { deletePost, loadPosts } from './redux/actions';
 
 
 
 const Posts = () => {
     let dispatch = useDispatch();
 
-    const { posts } = useSelector(state => state.data);
+    const { posts } = useSelector(state => state.posts);
 
     let nav = useNavigate();
 
 
     useEffect(() => {
 
-        dispatch(loadUsers());
+        dispatch(loadPosts());
+        console.log(posts);
 
     }, []);
 
     const handleDelete = (id) => {
 
-        if (window.confirm("Are you sure you want to delete this user?")) {
-            dispatch(deleteUser(id));
+        if (window.confirm("Are you sure you want to delete this post?")) {
+            dispatch(deletePost(id));
             
 
         }
@@ -286,9 +287,9 @@ const Posts = () => {
                     <div class="main-panel">
                         <div class="content-wrapper">
                             <div class="page-header">
-                                <h2 class="page-title"> Users </h2>
+                                <h2 class="page-title"> Posts </h2>
                                 <nav aria-label="breadcrumb">
-                                    <button type="button" class="btn btn-gradient-primary btn-fw">Add User</button>
+                                    {/* <button type="button" class="btn btn-gradient-primary btn-fw">Add User</button> */}
 
                                 </nav>
                             </div>
@@ -304,18 +305,21 @@ const Posts = () => {
                                             <table class="table table-hover text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>User Name</th>
-                                                        <th>Email</th>
+                                                        <th>Post ID</th>
+                                                        <th>User</th>
+                                                        <th>Content</th>
+                                                        <th>Image</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {posts && posts.map((post) => (
+                                                        
                                                         <tr key={post.id}>
                                                             <td>{post.id}</td>
-                                                            <td> {post.name}</td>
-                                                            <td> {post.email}</td>
+                                                            <td> {post.user_id}</td>
+                                                            <td> {post.content}</td>
+                                                            <td> {post.image}</td>
                                                             <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(post.id) }}>Delete</button>
                                                             </td>
                                                         </tr>

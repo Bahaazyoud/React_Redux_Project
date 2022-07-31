@@ -288,7 +288,7 @@ const ShowUsers = () => {
                             <div class="page-header">
                                 <h2 class="page-title"> Users </h2>
                                 <nav aria-label="breadcrumb">
-                                    <button type="button" class="btn btn-gradient-primary btn-fw">Add User</button>
+                                    <button type="button" class="btn btn-gradient-primary btn-fw" onClick={() => { nav('/addUser') }}>Add User</button>
 
                                 </nav>
                             </div>

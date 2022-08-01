@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,400i,500,700,800');
+
+body{
+     font-family: "Muli", "Segoe Ui";
+}
+.register-form{
+    height: 150vh;
+    color: white;
+    font-weight: bolder;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,0.7) 0%, rgba(78,9,121,0.7) 35%, rgba(0,212,255,0.7) 100%);
+
+}
+
+a:hover{
+    background-color: rgba(78,9,121,0.5) ;
+}
+.btn:hover {
+
+    background-color: white;
+    color: black ;
+}

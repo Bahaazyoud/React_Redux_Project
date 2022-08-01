@@ -1,7 +1,8 @@
-import React, { Component }from "react";
-import { useState,useEffect} from "react";
+import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './st.css'
 // const user_id = JSON.parse(localStorage.setItem("id"));
 
 const Register = () => {
@@ -15,7 +16,7 @@ const Register = () => {
   });
   // const [picture, setPicture] = useState([]);
   const handleImage = (e) => {
-    setUser({ ...user ,image: e.target.files[0] });
+    setUser({ ...user, image: e.target.files[0] });
   }
   const [error, setError] = useState([]);
   const handleSubmit = (e) => {
@@ -48,7 +49,7 @@ const Register = () => {
 
   useEffect(() => {
 
-  },[])
+  }, [])
   return (
     <>
       {/* <section className="inner-intro bg-1 bg-overlay-black-70">
@@ -82,25 +83,25 @@ const Register = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-10">
-              <div className="section-title">
+              <div className="section-title text-center mt-5">
                 <h2>Register Form</h2>
                 <div style={{ color: "red" }}>{error[0]}</div>
                 <div className="separator"></div>
               </div>
             </div>
           </div>
-          <form action="#" onSubmit={handleSubmit} className="signin-form" encType="multipart/form-data">
+          <form action="#" onSubmit={handleSubmit} className="signin-form m-5 p-3" encType="multipart/form-data">
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-12">
                 <div className="gray-form">
                   <div className="row">
-                    <div className="mb-3 col-md-6">
+                    <div className="form-group mb-3 col-md-12">
                       <label className="form-label">Your Name</label>
                       <input
                         onChange={(e) =>
                           setUser((prev) => ({ ...prev, name: e.target.value }))
                         }
-                        className="form-control"
+                        className="form-control form-control-lg"
                         type="text"
                         placeholder="Your Name"
                         name="name"
@@ -108,10 +109,10 @@ const Register = () => {
                         required
                       />
                     </div>
-                    <div className="mb-3 col-md-6">
+                    <div className="mb-3 col-md-12">
                       <label className="form-label">Image</label>
                       <input
-                        className="form-control"
+                        className="form-control form-control-lg"
                         type="file"
                         name="image"
                         // onChange={(e) =>
@@ -130,7 +131,7 @@ const Register = () => {
                     <label className="form-label">Mobile phone </label>
                     <input
                       id="phone"
-                      className="form-control"
+                      className="form-control form-control-lg"
                       type="text"
                       placeholder="Enter your mobile no"
                       name="phone"
@@ -147,7 +148,7 @@ const Register = () => {
                   <div className="mb-3">
                     <label className="form-label">Email </label>
                     <input
-                      className="form-control"
+                      className="form-control form-control-lg"
                       type="text"
                       placeholder="Enter your email"
                       name="email"
@@ -165,7 +166,7 @@ const Register = () => {
                   <div className="mb-3">
                     <label className="form-label">Password </label>
                     <input
-                      className="form-control"
+                      className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
                       name="password"
@@ -183,16 +184,23 @@ const Register = () => {
                     {" "}
                     Register an account{" "}
                   </a> */}
-                  <button
-                    className="button red"
-                    type="submit">
-                    Register
-                  </button>
+                  <div className="d-flex justify-content-center align-items-center mt-5">
+                    <button
+                      className="btn btn-outline-light "
+                      type="submit">
+                      Register
+                    </button>
 
+                    
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center mt-3">
                   <p className="link">
-                    Already have an account? please{" "}
-                    <a href="/login"> login here </a>
-                  </p>
+                      Already have an account? please{" "}
+                      <a href="/login" style={{ color:"white" }}> login here </a>
+                    </p>
+                    </div>
+
+
                 </div>
               </div>
             </div>

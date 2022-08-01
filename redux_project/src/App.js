@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/Users" element={<ShowUsers/>} />
         <Route exact path="/addUser" element={<AddUser/>} />
-        <Route exact path="/tbh" element={<Landing/>} />
+        <Route exact path="/landing" element={<Landing/>} />
 
 
 

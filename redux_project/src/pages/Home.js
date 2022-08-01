@@ -637,7 +637,7 @@ export const Home = () => {
         <div className="topbar stick">
           <div className="logo p-2">
             <a title href="newsfeed.html">
-              <img src="images/TheBooksClub-logos_black.png" alt="" />
+              <img src="images/TheBooksClub-logos_black.png" style={{ opacity:"0.6" }} alt="" />
             </a>
           </div>
           <div className="top-area">

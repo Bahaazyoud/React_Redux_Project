@@ -292,7 +292,7 @@ const Landing = () => {
                                         {/* <h5 className='font-weight-normal' style={{ color: "white" }}> </h5> */}
                                         <div className="d-flex justify-content-center align-items-center mt-5">
                                             <a className="btn btn-outline-light cbtn" href="/">
-                                            Visit Our Community
+                                                Visit Our Community
                                             </a>
 
 
@@ -315,12 +315,12 @@ const Landing = () => {
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="about-winku">
-                                        <h4>Welcome to Winku</h4>
+                                        <h4>Welcome to The Books Club</h4>
                                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</span>
                                         <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure</p>
                                         <div class="fonder">
-                                            <h4>william gates <i>founder</i></h4>
-                                            <i>winku inc</i>
+                                            <h4>ABKRS <i>founder</i></h4>
+                                            <i>TBC inc</i>
                                         </div>
                                         <figure class="sign-author">
                                             <img src="images/welcome-sign.png" alt="" />
@@ -329,7 +329,7 @@ const Landing = () => {
                                 </div>
                                 <div class="col-lg-6">
                                     <figure class="about-picture">
-                                        <img src="images/resources/about-comapny.jpg" alt="" />
+                                        <img src="images/shiromani-kant-mo3FOTG62ao-unsplash.jpg" alt="" />
                                     </figure>
                                 </div>
                             </div>
@@ -349,26 +349,26 @@ const Landing = () => {
                                 <div class="row merged">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="category-box">
-                                            <i class="fa fa-wordpress"></i>
-                                            <h2>WordPress Services</h2>
+                                            <i class="fa fa-comment"></i>
+                                            <h2>Online Community</h2>
                                             <p>Met consectetur adipisicing elit dolore suscipit, inventore aliquid...</p>
-                                            <a href="#" class="main-btn" title="">Read More</a>
+                                            {/* <a href="#" class="main-btn" title="">Read More</a> */}
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="category-box selected">
-                                            <i class="fa fa-html5"></i>
-                                            <h2>Html Services</h2>
+                                            <i class="fa fa-server"></i>
+                                            <h2>Advertisment Space</h2>
                                             <p>Met consectetur adipisicing elit dolore suscipit, inventore aliquid...</p>
-                                            <a href="#" class="main-btn" title="">Read More</a>
+                                            {/* <a href="#" class="main-btn" title="">Read More</a> */}
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="category-box">
-                                            <i class="fa fa-google-wallet"></i>
-                                            <h2>Design Services</h2>
+                                            <i class="fa fa-suitcase"></i>
+                                            <h2>Community Addmistration</h2>
                                             <p>Met consectetur adipisicing elit dolore suscipit, inventore aliquid...</p>
-                                            <a href="#" class="main-btn" title="">Read More</a>
+                                            {/* <a href="#" class="main-btn" title="">Read More</a> */}
                                         </div>
                                     </div>
                                 </div>
@@ -380,13 +380,13 @@ const Landing = () => {
 
                 <section>
                     <div class="gap100 pattern">
-                        <div class="bg-image" style={{ backgroundImage: "url(images/resources/newsletter-bg.jpg)", backgroundRepeat: " no-repeat" }}></div>
+                        <div class="bg-image" style={{ backgroundImage: "url(images/resources/susan-q-yin-2JIvboGLeho-unsplash.jpg)", backgroundRepeat: " no-repeat" }}></div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="news-letter">
                                         <h2>Newsletter <span>Signup</span></h2>
-                                        <span>Shortest Way To Explore What Will Happen On Enternity</span>
+                                        <span>Shortest Way To Stay Updated To Our Latest News</span>
                                         <form method="post">
                                             <input type="text" placeholder="Please Type Email Id" class="emails" />
                                             <button>Subscribe Now</button>
@@ -410,37 +410,46 @@ const Landing = () => {
                                 </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="our-teambox">
-                                        <figure><img src="images/resources/team1.jpg" alt="" /></figure>
+                                        <figure><img src="images/empty-avatar.png" alt="" /></figure>
                                         <div class="team-info">
-                                            <h4>Sara Grey</h4>
-                                            <span>Designer</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="our-teambox">
-                                        <figure><img src="images/resources/team4.jpg" alt="" /></figure>
-                                        <div class="team-info">
-                                            <h4>Peeter Paker</h4>
+                                            <h4>Shifaa Alkasasbeh</h4>
                                             <span>Developer</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="our-teambox">
-                                        <figure><img src="images/resources/team3.jpg" alt="" /></figure>
+                                        <figure><img src="images/empty-avatar.png" alt="" /></figure>
                                         <div class="team-info">
-                                            <h4>Amy watson</h4>
-                                            <span>Support</span>
+                                            <h4>Ruba Almasri</h4>
+                                            <span>Developer</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="our-teambox">
-                                        <figure><img src="images/resources/team2.jpg" alt="" /></figure>
+                                        <figure><img src="images/empty-avatar.png" alt="" /></figure>
                                         <div class="team-info">
-                                            <h4>Emma Watson</h4>
-                                            <span>Operations</span>
+                                            <h4>Khozama Obeidat</h4>
+                                            <span>Product Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="our-teambox">
+                                        <figure><img src="images/empty-avatar.png" alt="" /></figure>
+                                        <div class="team-info">
+                                            <h4>Abdullah Assoli</h4>
+                                            <span>Developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 mt-5">
+                                    <div class="our-teambox">
+                                        <figure><img src="images/empty-avatar.png" alt="" /></figure>
+                                        <div class="team-info">
+                                            <h4>Bahaa Zyoud</h4>
+                                            <span>Scrum Master</span>
                                         </div>
                                     </div>
                                 </div>
@@ -450,36 +459,7 @@ const Landing = () => {
                 </section>
                 {/* <!-- our team --> */}
 
-                <section>
-                    <div class="gap100 no-top">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="row">
-                                        <div class="section-heading">
-                                            <h2>Sponsors</h2>
-                                        </div>
-                                        <ul class="sponsor-logo">
-                                            <li><img alt="" src="images/resources/sponsor-gray1.png" /></li>
-                                            <li><img alt="" src="images/resources/sponsor-gray2.png" /></li>
-                                            <li><img alt="" src="images/resources/sponsor-gray3.png" /></li>
-                                            <li><img alt="" src="images/resources/sponsor-gray4.png" /></li>
-                                            <li><img alt="" src="images/resources/sponsor-gray5.png" /></li>
-                                            <li><img alt="" src="images/resources/sponsor-gray6.png" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <section>
-                    <div class="getquot-baner">
-                        <span>Get our weekly Quotaion for Porviding the best Services</span>
-                        <a title="" href="#">Get a Quote</a>
-                    </div>
-                </section>
                 {/*<!-- get a quote --> */}
 
                 <footer>
@@ -489,7 +469,7 @@ const Landing = () => {
                                 <div class="widget">
                                     <div class="foot-logo">
                                         <div class="logo">
-                                            <a href="index-2.html" title=""><img src="images/logo.png" alt="" /></a>
+                                            <a href="index-2.html" title=""><img src="images/TheBooksClub-logos_black.png" alt="" /></a>
                                         </div>
                                         <p>
                                             The trio took this simple idea and built it into the world’s leading carpooling platform.
@@ -556,16 +536,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </footer>{/*<!-- footer --> */}
-                <div class="bottombar">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <span class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                                <i><img src="images/credit-cards.png" alt="" /></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
 

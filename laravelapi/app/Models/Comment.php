@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-        protected $fillable = ['user_id','text'];
+        protected $fillable = ['user_id','text','post_id'];
 }

@@ -15,7 +15,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+                $comments = Comment::all();
+        return $comments;
     }
 
     /**
@@ -28,9 +29,9 @@ class CommentController extends Controller
     {
         Comment::create([
             'text'=>$request->text,
-            'user_id'=>$request->user_id
+            'user_id'=>$request->user_id,
+            'post_id'=>$request->post_id
         ]);
-        return Comment::create($request->all());
     }
 
     /**

@@ -12,7 +12,7 @@ body{
 
 }
 
-a:hover{
+.link:hover{
     background-color: rgba(78,9,121,0.5) ;
 }
 .btn:hover {

@@ -1,7 +1,7 @@
 import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
 import Posts from "./admin/Posts";
-import AddUser from "./admin/redux/AddUser";
+import AddUser from "./admin/AddUser";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  import Register  from "./pages/Login/Register";
 import  Login  from "./pages/Login/login";

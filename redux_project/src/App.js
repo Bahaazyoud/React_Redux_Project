@@ -11,6 +11,7 @@ import Comments from './admin/Comments';
 import { createContext, useState } from "react";
 // import { BrowserRouter } from 'react-router-dom';
 import store from './admin/redux/store';
+import Landing from "./Landing";
 export const userContext = createContext();
 function App() {
   const [userData, setUserData] = useState([]);
@@ -20,12 +21,14 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/register" element={<Register />} />
         <Route exact path="/Users" element={<ShowUsers/>} />
         <Route exact path="/addUser" element={<AddUser/>} />
+        <Route exact path="/tbh" element={<Landing/>} />
+
 
 
         <Route exact path="/comments" element={<Comments/>} />
+        <Route exact path="/register" element={<Register />} />
         <Route exact path="/Posts" element={<Posts/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/" element={<Home />} />

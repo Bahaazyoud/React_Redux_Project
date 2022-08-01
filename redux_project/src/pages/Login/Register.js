@@ -186,7 +186,7 @@ const Register = () => {
                   </a> */}
                   <div className="d-flex justify-content-center align-items-center mt-5">
                     <button
-                      className="btn btn-outline-light "
+                      className="btn   btn-outline-light "
                       type="submit">
                       Register
                     </button>

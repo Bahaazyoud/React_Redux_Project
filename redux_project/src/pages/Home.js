@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import axios from "axios";
 
 export const Home = () => {
@@ -7,10 +7,10 @@ export const Home = () => {
   const [userid, setuserid] = useState();
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    const soket = io("http://localhost:5000");
-    console.log(soket.on("firstEvent", (msg) => console.log(msg)));
-  }, []);
+  // useEffect(()=>{
+  //   const soket = io("http://localhost:5000")
+  //   console.log(soket.on("firstEvent",msg=>console.log(msg)));
+  // },[])
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/join")

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -47,3 +48,18 @@ Route::post('join',[PostController::class , 'join']);
 // http://127.0.0.1:8000/api/join
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 // http://127.0.0.1:8000/api/post/1
+
+// http://127.0.0.1:8000/api/post/1
+
+//comments routes
+Route::post('comment',[CommentController::class, 'store']);
+
+
+// *****************Admin Router ********************
+Route::get('/Users',[UserController::class , 'Users']);
+Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
+
+Route::get('/Posts',[PostController::class , 'Posts']);
+Route::delete('/deletePost/{id}', [PostController::class,'destroy']);
+
+Route::post('/addUser', [UserController::class, 'addUser']);

@@ -95,11 +95,11 @@ class UserController extends Controller
 
         $user = User::where('email', $request->input('email'))->first();
 
-        if (!$user || !Hash::check($request->input('password'), $user->password)) {
-            return response()->json([
-                'errors' => ['Email or Password is incorrect']
-            ]);
-        }
+        // if (!$user || !Hash::check($request->password, $user->password)) {
+        //     return response()->json([
+        //         'errors' => ['Email or Password is incorrect']
+        //     ]);
+        // }
         return response($user, 201);
     }
 
@@ -114,10 +114,10 @@ class UserController extends Controller
         $users = User::all();
         return $users;
     }
-<<<<<<< HEAD
-}
-=======
-    
+
+
+
+
 
     public function Users()
     {
@@ -132,5 +132,28 @@ class UserController extends Controller
          $app->delete();
          return redirect()->back()->with('success','Application has been ignored');
     }
+    public function addUser($request)
+    {
+       
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'image'=>$request->image,
+
+        ]);
+        return User::create($request->all());
+     
+        // $$user = new User();
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->phone = $request->phone;
+        // $user->image = $request->image;
+        // // $user->password = Hash::make($request->input('password'));
+        // $user->save();
+        // return response($user, 201);
+         
+    }
+   
 }
->>>>>>> 0f0abf2de664f9f722949d933fa79c6e5c4ac064
+

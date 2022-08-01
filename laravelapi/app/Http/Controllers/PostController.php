@@ -56,17 +56,28 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create([
-            'content'=>$request->content,
-            'image'=>$request->image,
-            'user_id'=>$request->user_id
-        ]);
-
+        $request->validate(['image'=>'mimes:jpg,png|image' ]);
+        $post= new Post();
+        $post->content=$request->content;
+        $post->image=$request->image;
+        $post->user_id=$request->user_id;
+        if($request->hasfile('image')){
+            $file=$request->file('image');
+            $ex=$file->getClientOriginalExtension();
+            $filename=time().'.'.$ex;
+            $file->move('uploads/',$filename);
+            $post->image=$filename;
+        }
+        $post->save();
+         return response()->json([
+            'status' => true,
+            'message' => "clothes save successfully!",
+        ], 200);
     }
     public function join(Request $request)
     {
-        $postInfo= DB::table('posts')
-        ->join('users', 'posts.user_id', '=', 'users.id')->get();
+        $postInfo= DB::table('users')
+        ->join('posts', 'users.id', '=', 'posts.user_id')->get();
         return $postInfo;
     }
     /**
@@ -109,8 +120,17 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function Posts()
     {
-        //
+        $posts = Post::all();
+        return $posts;
+    }
+
+
+    public function destroy($post)
+    {
+        $app=Post::find($post);
+         $app->delete();
+         return redirect()->back()->with('success','Post has been ignored');
     }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import axios from "axios";
+
 export const Home = () => {
   const [res,setRes] = useState();
   const [userid,setuserid] = useState();
@@ -12,36 +13,47 @@ export const Home = () => {
   },[])
   useEffect(()=>{
     axios.get('http://127.0.0.1:8000/api/join').then(res=>{
-      console.log(res);
       setRes(res.data)
     }).catch(error=>console.log(error));
   },[])
   const [data, setFormValue] = useState({
     content: null,
-    image: null,
-    user_id: 1
+    user_id: sessionStorage.getItem("user_id"),
   });
-  window.axios = require("axios");
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      let image = event.target.files[0];
+      reader.onloadend = () => {
+        setFormValue({
+          ...data,
+          imagePreview: reader.result,
+          image: data.image,
+        });
+      };
+      reader.readAsDataURL(image);
+    }
+  };
   const Submit = (event) => {
     event.preventDefault();
     const api = {
       content: data.content,
-      image: data.image,
-      user_id: data.user_id
+      image:data.image,
+      user_id: data.user_id,
     };
+    
     axios.post("http://127.0.0.1:8000/api/post", api);
-   
   };
   const valueHandler = (event) => {
     setFormValue({ ...data, [event.target.name]: event.target.value });
   };
   const likeHandleNotification = () => {
-    setLiked(false);
-    setCount(count-1);
-  }
-  const handleNotification = () => {
     setLiked(true);
     setCount(count+1);
+  }
+  const handleNotification = () => {
+    setLiked(false);
+    setCount(count-1);
   }
   return (
     <div>
@@ -600,12 +612,12 @@ export const Home = () => {
                             <img src="images/resources/admin2.jpg" alt="" />
                           </figure>
                           <div className="newpst-input">
-                            <form onSubmit={Submit}>
+                            <form method="POST" onSubmit={Submit} encType="multipart/form-data">
                               <textarea rows={2} placeholder="write something" id='content' value={data.content} name='content' onChange={valueHandler} />
                               <div class="attachments">
                                 <ul>
                                   <li style={{display:'flext',justifyContent:'center',alignItems:'center'}}>
-                                  <input type='file' id="image" name='image' onChange={valueHandler} style={{ display: 'none', visibility: 'none' }} />        
+                                  <input type='file' id="image" name='image' onChange={onImageChange} style={{ display: 'none', visibility: 'none' }} />        
                                     <label class="fileContainer" htmlFor='image'>
                                     <i class="fa fa-image" style={{fontSize:'25px',color:'black'}}></i>
                                     </label>
@@ -647,9 +659,18 @@ export const Home = () => {
                                         <ins>52</ins>
                                       </span>
                                     </li>
-                                    <li>
-                                        {liked ? <span className="like" data-toggle="tooltip" title="like"><i className="ti-heart" onClick={likeHandleNotification}/><ins>{count}</ins></span> : <span className="dislike" data-toggle="tooltip" title="dislike"><i className="ti-heart-broken" onClick={handleNotification}/><ins>{count}</ins></span>}
-                                    </li>
+                                    {liked ? (<li>
+                                      <span className="like" data-toggle="tooltip" title="like">
+                                        <i className="ti-heart"/>
+                                        <ins>{count}</ins>
+                                      </span>  
+                                    </li>):
+                                    (<li>
+                                      <span className="dislike" data-toggle="tooltip" title="dislike">
+                                        <i className="ti-heart-broken"onClick={likeHandleNotification}/>
+                                        <ins>{count}</ins>
+                                      </span>
+                                    </li>)}
                                     <li className="social-media">
                                       <div className="menu">
                                         <div className="btn trigger"><i className="fa fa-share-alt" /></div>

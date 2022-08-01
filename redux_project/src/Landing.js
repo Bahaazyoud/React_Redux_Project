@@ -294,9 +294,13 @@ const Landing = () => {
                                             <a className="btn btn-outline-light cbtn" href="/">
                                                 Visit Our Community
                                             </a>
+                                            <a className="btn btn-outline-light cbtn m-2 " href="/register">
+                                                Join Our Community
+                                            </a>
 
 
                                         </div>
+                                         
                                         {/* <nav class="breadcrumb">
                                             <a class="breadcrumb-item" href="index-2.html">Home</a>
                                             <span class="breadcrumb-item active">About us</span>

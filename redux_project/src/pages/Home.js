@@ -1429,136 +1429,32 @@ export const Home = () => {
                                 </div>
                                 <div className="coment-area">
                                   <ul className="we-comet">
-                                    <li>
-                                      <div className="comet-avatar">
-                                        <img
-                                          src="images/resources/comet-1.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div className="we-comment">
-                                        <div className="coment-head">
-                                          <h5>
-                                            <a href="time-line.html" title>
-                                              Jason borne
-                                            </a>
-                                          </h5>
-                                          <span>1 year ago</span>
-                                          <a
-                                            className="we-reply"
-                                            href="#"
-                                            title="Reply"
-                                          >
-                                            <i className="fa fa-reply" />
-                                          </a>
-                                        </div>
-                                        <p>
-                                          we are working for the dance and sing
-                                          songs. this car is very awesome for
-                                          the youngster. please vote this car
-                                          and like our post
-                                        </p>
-                                      </div>
-                                      <ul>
-                                        <li>
-                                          <div className="comet-avatar">
-                                            <img
-                                              src="images/resources/comet-2.jpg"
-                                              alt=""
-                                            />
-                                          </div>
-                                          <div className="we-comment">
-                                            <div className="coment-head">
-                                              <h5>
-                                                <a href="time-line.html" title>
-                                                  alexendra dadrio
-                                                </a>
-                                              </h5>
-                                              <span>1 month ago</span>
-                                              <a
-                                                className="we-reply"
-                                                href="#"
-                                                title="Reply"
-                                              >
-                                                <i className="fa fa-reply" />
-                                              </a>
+                                    {comments &&
+                                      comments?.map((post) => {
+                                        return (
+                                          <li>
+                                            <div className="comet-avatar">
+                                              <img
+                                                src="images/resources/comet-1.jpg"
+                                                alt=""
+                                              />
                                             </div>
-                                            <p>
-                                              yes, really very awesome car i see
-                                              the features of this car in the
-                                              official website of{" "}
-                                              <a href="#" title>
-                                                #Mercedes-Benz
-                                              </a>{" "}
-                                              and really impressed :-
-                                            </p>
-                                          </div>
-                                        </li>
-                                        <li>
-                                          <div className="comet-avatar">
-                                            <img
-                                              src="images/resources/comet-3.jpg"
-                                              alt=""
-                                            />
-                                          </div>
-                                          <div className="we-comment">
-                                            <div className="coment-head">
-                                              <h5>
-                                                <a href="time-line.html" title>
-                                                  Olivia
-                                                </a>
-                                              </h5>
-                                              <span>16 days ago</span>
-                                              <a
-                                                className="we-reply"
-                                                href="#"
-                                                title="Reply"
-                                              >
-                                                <i className="fa fa-reply" />
-                                              </a>
+                                            <div className="we-comment">
+                                              <div className="coment-head">
+                                                <h5>
+                                                  <a
+                                                    href="time-line.html"
+                                                    title
+                                                  >
+                                                    {post.id}
+                                                  </a>
+                                                </h5>
+                                              </div>
+                                              <p>{post.text}</p>
                                             </div>
-                                            <p>
-                                              i like lexus cars, lexus cars are
-                                              most beautiful with the awesome
-                                              features, but this car is really
-                                              outstanding than lexus
-                                            </p>
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li>
-                                      <div className="comet-avatar">
-                                        <img
-                                          src="images/resources/comet-1.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div className="we-comment">
-                                        <div className="coment-head">
-                                          <h5>
-                                            <a href="time-line.html" title>
-                                              Donald Trump
-                                            </a>
-                                          </h5>
-                                          <span>1 week ago</span>
-                                          <a
-                                            className="we-reply"
-                                            href="#"
-                                            title="Reply"
-                                          >
-                                            <i className="fa fa-reply" />
-                                          </a>
-                                        </div>
-                                        <p>
-                                          we are working for the dance and sing
-                                          songs. this video is very awesome for
-                                          the youngster. please vote this video
-                                          and like our channel
-                                          <i className="em em-smiley" />
-                                        </p>
-                                      </div>
-                                    </li>
+                                          </li>
+                                        );
+                                      })}
                                     <li>
                                       <a
                                         href="#"
@@ -1576,32 +1472,40 @@ export const Home = () => {
                                         />
                                       </div>
                                       <div className="post-comt-box">
-                                        <form method="post">
+                                        <form
+                                          onSubmit={commentHandler}
+                                          method="post"
+                                        >
                                           <textarea
+                                            name="comment"
                                             placeholder="Post your comment"
-                                            defaultValue={""}
+                                            value={comment.text}
+                                            onChange={commentChangeHandler}
                                           />
-                                          <div className="add-smiles">
-                                            <span
-                                              className="em em-expressionless"
-                                              title="add icon"
-                                            />
-                                          </div>
-                                          <div className="smiles-bunch">
-                                            <i className="em em---1" />
-                                            <i className="em em-smiley" />
-                                            <i className="em em-anguished" />
-                                            <i className="em em-laughing" />
-                                            <i className="em em-angry" />
-                                            <i className="em em-astonished" />
-                                            <i className="em em-blush" />
-                                            <i className="em em-disappointed" />
-                                            <i className="em em-worried" />
-                                            <i className="em em-kissing_heart" />
-                                            <i className="em em-rage" />
-                                            <i className="em em-stuck_out_tongue" />
-                                          </div>
-                                          <button type="submit" />
+                                          <input
+                                            type="hidden"
+                                            value={localStorage.getItem(
+                                              "user_id"
+                                            )}
+                                            name="user_id"
+                                          />
+                                          <input
+                                            type="hidden"
+                                            value="1"
+                                            name="post_id"
+                                          />
+                                          <button
+                                            style={{
+                                              color: "#088dcd",
+                                              height: "100%",
+                                              textShadow:
+                                                "#00000030 2px 0px 13px",
+                                            }}
+                                            type="submit"
+                                          >
+                                            <i className="ti-comment" />{" "}
+                                            {/* {comments[0].id} here */}
+                                          </button>
                                         </form>
                                       </div>
                                     </li>

@@ -33,8 +33,16 @@ const Login = () => {
         if (res.data.errors) {
           setError(res.data.errors);
         } else {
+
           sessionStorage.setItem("user_id", res.data.id);
-          navigate("/");
+          if (res.data.roles === "1") {
+            navigate("/");
+
+
+          }else{
+
+            navigate("/dashboard");
+          }
         }
       })
       .catch((error) => {
@@ -108,7 +116,7 @@ const Login = () => {
                     <div className="remember-checkbox mb-4">
                       <input type="checkbox" name="one" id="one" />
                       <label for="one"> Remember me</label>
-                      
+
                     </div>
                   </div>
                   <div className="d-flex justify-content-center align-items-center mt-5">
@@ -121,18 +129,18 @@ const Login = () => {
 
                   </div>
                   <div className="d-flex justify-content-center align-items-center mt-5">
-                  <p className="link">
-                  <span>DON’T HAVE AN ACCOUNT? </span>
-          
-                      <a href="/register" style={{ color:"white" }}> Create An Account </a>
+                    <p className="link">
+                      <span>DON’T HAVE AN ACCOUNT? </span>
+
+                      <a href="/register" style={{ color: "white" }}> Create An Account </a>
                     </p>
-                    </div>
+                  </div>
 
 
-                 
-                  
-                 
-                  
+
+
+
+
                 </form>
               </div>
             </div>

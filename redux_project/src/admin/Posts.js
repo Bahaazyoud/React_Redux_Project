@@ -237,7 +237,7 @@ const Posts = () => {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../Comments">
+                                <a class="nav-link" href="../comments">
                                     <span class="menu-title">Comments</span>
                                     <i class="mdi mdi-comment menu-icon"></i>
                                 </a>

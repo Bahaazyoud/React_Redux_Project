@@ -4,6 +4,8 @@ import axios from "axios";
 import { userContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './st.css'
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,8 +33,16 @@ const Login = () => {
         if (res.data.errors) {
           setError(res.data.errors);
         } else {
+
           sessionStorage.setItem("user_id", res.data.id);
-          navigate("/");
+          if (res.data.roles === "1") {
+            navigate("/");
+
+
+          }else{
+
+            navigate("/dashboard");
+          }
         }
       })
       .catch((error) => {
@@ -43,11 +53,11 @@ const Login = () => {
   // console.log(userData);
   return (
     <>
-      <section className="login-form page-section-ptb">
-        <div className="container-scroller">
+      <section className="register-form  page-section-ptb">
+        <div className="container ">
           <div className="row">
             <div className="col-md-12">
-              <div className="section-title">
+              <div className="section-title  text-center mt-5">
                 <h2>Login To Your Account</h2>
                 <div style={{ color: "#9a55ff" }}>{error[0]}</div>
                 <div className="separator"></div>
@@ -60,7 +70,7 @@ const Login = () => {
                 <form
                   action="#"
                   onSubmit={handleSubmit}
-                  className="signin-form"
+                  className="signin-form mt-5 p-3"
                 >
                   <div className="mb-3">
                     <label className="form-label" for="name">
@@ -68,7 +78,7 @@ const Login = () => {
                     </label>
                     <input
                       id="name"
-                      className="form-control"
+                      className="form-control form-control-lg"
                       onChange={(e) =>
                         setUser((prev) => ({
                           ...prev,
@@ -94,7 +104,7 @@ const Login = () => {
                         }))
                       }
                       id="Password"
-                      className="form-control"
+                      className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
                       name="Password"
@@ -106,34 +116,31 @@ const Login = () => {
                     <div className="remember-checkbox mb-4">
                       <input type="checkbox" name="one" id="one" />
                       <label for="one"> Remember me</label>
-                      <a
-                        href="#"
-                        className="float-end"
-                        style={{ color: "#9a55ff" }}
-                      >
-                        Forgot Password?
-                      </a>
+
                     </div>
                   </div>
-                  <div className="d-grid">
-                    {/* <a href="#" className="button red btn-block">
-                      {" "}
-                      Log in{" "}
-                    </a> */}
+                  <div className="d-flex justify-content-center align-items-center mt-5">
                     <button
-                      className="btn button red btn-block"
-                      type="submit"
-                      style={{ backgroundColor: "#9a55ff" }}
-                    >
-                      {" "}
-                      Login{" "}
+                      className="btn btn-outline-light "
+                      type="submit">
+                      Login
                     </button>
+
+
                   </div>
-                  <br />
-                  <span>DON’T HAVE AN ACCOUNT? </span>
-                  <a href="/register" style={{ color: "#9a55ff" }}>
-                    Sign Up
-                  </a>
+                  <div className="d-flex justify-content-center align-items-center mt-5">
+                    <p className="link">
+                      <span>DON’T HAVE AN ACCOUNT? </span>
+
+                      <a href="/register" style={{ color: "white" }}> Create An Account </a>
+                    </p>
+                  </div>
+
+
+
+
+
+
                 </form>
               </div>
             </div>

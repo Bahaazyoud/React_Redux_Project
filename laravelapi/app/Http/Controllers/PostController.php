@@ -69,10 +69,7 @@ class PostController extends Controller
             $post->image=$filename;
         }
         $post->save();
-         return response()->json([
-            'status' => true,
-            'message' => "clothes save successfully!",
-        ], 200);
+         return redirect("http://localhost:3004/");
     }
     public function join(Request $request)
     {

@@ -6,25 +6,21 @@ const dummy = [{
   like:0
 }]
 export const Home = () => {
-<<<<<<< HEAD
   const [res,setRes] = useState();
+  const [button, setbutton] = useState(false);
   const [userid,setuserid] = useState();
   const [liked,setLiked] = useState(dummy);
   const [count,setCount] = useState(false);
-  useEffect(()=>{
-    const soket = io("http://localhost:5000")
-    console.log(soket.on("firstEvent",msg=>console.log(msg)));
-  },[])
+  // useEffect(()=>{
+  //   const soket = io("http://localhost:5000")
+  //   console.log(soket.on("firstEvent",msg=>console.log(msg)));
+  // },[])
   useEffect(()=>{
     axios.get('http://127.0.0.1:8000/api/join').then(res=>{
       setRes(res.data)
     }).catch(error=>console.log(error));
   },[])
-=======
-  const [res, setRes] = useState();
-  const [userid, setuserid] = useState();
-  const [liked, setLiked] = useState(false);
-  const [count, setCount] = useState(0);
+
   // useEffect(()=>{
   //   const soket = io("http://localhost:5000")
   //   console.log(soket.on("firstEvent",msg=>console.log(msg)));
@@ -37,12 +33,13 @@ export const Home = () => {
       })
       .catch((error) => console.log(error));
   }, []);
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
   const [data, setFormValue] = useState({
     content: null,
     user_id: sessionStorage.getItem("user_id"),
   });
-<<<<<<< HEAD
+  const disabledHandler = ()=>{
+    setbutton(false)
+  }
   // const onImageChange = (event) => {
   //   if (event.target.files && event.target.files[0]) {
   //     let reader = new FileReader();
@@ -67,7 +64,6 @@ export const Home = () => {
     
   //   axios.post("http://127.0.0.1:8000/api/post", api);
   // };
-=======
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
@@ -92,13 +88,11 @@ export const Home = () => {
 
     axios.post("http://127.0.0.1:8000/api/post", api);
   };
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
   const valueHandler = (event) => {
     setFormValue({ ...data, [event.target.name]: event.target.value });
   };
 
   const likeHandleNotification = () => {
-<<<<<<< HEAD
     setLiked({
       ...dummy,
       like:+1
@@ -112,14 +106,6 @@ export const Home = () => {
     });
     setCount(true);
   }
-=======
-    setLiked(true);
-    setCount(count + 1);
-  };
-  const handleNotification = () => {
-    setLiked(false);
-    setCount(count - 1);
-  };
   const [comment, setComment] = useState({
     text: "",
     user_id: localStorage.getItem("user_id"),
@@ -151,7 +137,6 @@ export const Home = () => {
       })
       .catch((error) => console.log(error));
   }, []);
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
   return (
     <div>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -1295,29 +1280,18 @@ export const Home = () => {
                             <img src="images/resources/admin2.jpg" alt="" />
                           </figure>
                           <div className="newpst-input">
-<<<<<<< HEAD
-                            <form method="POST" action="http://127.0.0.1:8000/api/post" encType="multipart/form-data">
-                              <input type="hidden" name="user_id" value={sessionStorage.getItem("user_id")}/>
-                              <textarea rows={2} placeholder="write something" id='content'  name='content'  />
-                              <div class="attachments">
-                                <ul>
-                                  <li style={{display:'flext',justifyContent:'center',alignItems:'center'}}>
-                                  <input type='file' id="image" name='image' onChange={valueHandler} style={{ display: 'none', visibility: 'none' }} />        
-                                    <label class="fileContainer" htmlFor='image'>
-                                    <i class="fa fa-image" style={{fontSize:'25px',color:'black'}}></i>
-=======
                             <form
                               method="POST"
-                              onSubmit={Submit}
+                              action="http://127.0.0.1:8000/api/post"
                               encType="multipart/form-data"
+                              
                             >
+                              <input type="hidden" name="user_id" value={sessionStorage.getItem("user_id")}/>
                               <textarea
                                 rows={2}
                                 placeholder="write something"
                                 id="content"
-                                value={data.content}
                                 name="content"
-                                onChange={valueHandler}
                               />
                               <div class="attachments">
                                 <ul>
@@ -1332,7 +1306,6 @@ export const Home = () => {
                                       type="file"
                                       id="image"
                                       name="image"
-                                      onChange={onImageChange}
                                       style={{
                                         display: "none",
                                         visibility: "none",
@@ -1349,7 +1322,6 @@ export const Home = () => {
                                           color: "black",
                                         }}
                                       ></i>
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
                                     </label>
                                   </li>
                                   <li>
@@ -1360,30 +1332,6 @@ export const Home = () => {
                             </form>
                           </div>
                         </div>
-<<<<<<< HEAD
-                      </div>{/* add post new box */}
-                      {res?.map(post=>{ return(
-                      <div className="loadMore">
-                        <div className="central-meta item" key={post.id}>
-                          <div className="user-post">
-                            <div className="friend-info">
-                              <figure>
-                                <img src="images/resources/friend-avatar10.jpg" alt="" />
-                              </figure>
-                              <div className="friend-name">
-                                <ins><a href="time-line.html" title>{post.name}</a></ins>
-                                <span>published: june,2 2018 19:PM</span>
-                              </div>
-                              <div className="post-meta">
-                                <img src={`http://localhost:8000/uploads/${post.image}`} alt="" />
-                                <div className="description">
-                                  <p>
-                                  {post.content}
-                                  </p>
-                                </div>
-                                <div className="we-video-info">
-                                  <ul>
-=======
                       </div>
                       {/* add post new box */}
                       {res?.map((post) => {
@@ -1407,7 +1355,7 @@ export const Home = () => {
                                     <span>published: june,2 2018 19:PM</span>
                                   </div>
                                   <div className="post-meta">
-                                    <img src={post.image} alt="" />
+                                    <img src={`http://localhost:8000/uploads/${post.image}`} alt="" />
                                     <div className="we-video-info">
                                       <ul>
                                         <li>
@@ -1554,7 +1502,6 @@ export const Home = () => {
                                           </li>
                                         );
                                       })}
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
                                     <li>
                                       <a
                                         href="#"
@@ -1564,56 +1511,6 @@ export const Home = () => {
                                         more comments
                                       </a>
                                     </li>
-<<<<<<< HEAD
-                                    <li>
-                                      <span className="comment" data-toggle="tooltip" title="Comments">
-                                        <i className="fa fa-comments-o" />
-                                        <ins>52</ins>
-                                      </span>
-                                    </li>
-                                    {count ? (<li>
-                                      <span className="like" data-toggle="tooltip" title="like">
-                                        <i className="ti-heart"/>
-                                        <ins>{liked.like}</ins>
-                                      </span>  
-                                    </li>):
-                                    (<li>
-                                      <span className="dislike" data-toggle="tooltip" title="dislike">
-                                        <i className="ti-heart-broken"onClick={likeHandleNotification}/>
-                                        <ins>{count}</ins>
-                                      </span>
-                                    </li>)}
-                                    <li className="social-media">
-                                      <div className="menu">
-                                        <div className="btn trigger"><i className="fa fa-share-alt" /></div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-html5" /></a></div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-facebook" /></a></div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-google-plus" /></a></div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-twitter" /></a></div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-css3" /></a></div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-instagram" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-dribbble" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="rotater">
-                                          <div className="btn btn-icon"><a href="#" title><i className="fa fa-pinterest" /></a>
-                                          </div>
-                                        </div>
-=======
                                     <li className="post-comment">
                                       <div className="comet-avatar">
                                         <img
@@ -1657,15 +1554,10 @@ export const Home = () => {
                                             {/* {comments[0].id} here */}
                                           </button>
                                         </form>
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
                                       </div>
                                     </li>
                                   </ul>
                                 </div>
-<<<<<<< HEAD
-                   
-=======
->>>>>>> cd692c46e60185b9d757543ff3f7af9e6df31255
                               </div>
                             </div>
                           </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
+
 
 class CommentController extends Controller
 {
@@ -24,7 +26,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Comment::create([
+            'text'=>$request->text,
+            'user_id'=>$request->user_id
+        ]);
+        return Comment::create($request->all());
     }
 
     /**
@@ -56,8 +62,17 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function Comments()
     {
-        //
+        $comments = Comment::all();
+        return $comments;
+    }
+
+
+    public function destroy($comment)
+    {
+        $app = Comment::find($comment);
+        $app->delete();
+        return redirect()->back()->with('success', 'Comment has been ignored');
     }
 }

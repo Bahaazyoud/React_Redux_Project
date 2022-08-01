@@ -1,14 +1,16 @@
- import Dashboard from "./admin/Dashboard";
+import Dashboard from "./admin/Dashboard";
 import ShowUsers from "./admin/showUsers";
+import Posts from "./admin/Posts";
+import AddUser from "./admin/redux/AddUser";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  import Register  from "./pages/Login/Register";
-import  Login  from "./pages/Login/Login";
+import  Login  from "./pages/Login/login";
 import { Home } from "./pages/Home";
 import { createContext, useState } from 'react';
-export const userContext = createContext();
+import Comments from "./admin/Comments";
 
-
-
+ const userContext = createContext();
+ 
 function App() {
 
   const [userData, setUserData] = useState([]);
@@ -21,13 +23,15 @@ function App() {
 
 
       <Routes>
-      <Route path="/dashboard" element={<Dashboard/>} />
-      <Route path="/" element={<Home/>} />
-        <Route path="/Users" element={<ShowUsers/>} />
-        
-        <Route path="/register" element={<Register/>} />
-         
-        <Route path="/Login" element={<Login/>} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/Users" element={<ShowUsers/>} />
+        <Route exact path="/addUser" element={<AddUser/>} />
+        <Route exact path="/comments" element={<Comments/>} />
+        <Route exact path="/Posts" element={<Posts/>} />
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/" element={<Home />} />
+
       </Routes>
 
 
@@ -36,8 +40,7 @@ function App() {
 
     </userContext.Provider>
     </div>
- 
   );
-}
+};
 
 export default App;

@@ -113,8 +113,17 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function Posts()
     {
-        //
+        $posts = Post::all();
+        return $posts;
+    }
+
+
+    public function destroy($post)
+    {
+        $app=Post::find($post);
+         $app->delete();
+         return redirect()->back()->with('success','Post has been ignored');
     }
 }

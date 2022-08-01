@@ -62,10 +62,7 @@ Route::delete('/deleteUsers/{id}', [UserController::class,'destroy']);
 Route::get('/Posts',[PostController::class , 'Posts']);
 Route::delete('/deletePost/{id}', [PostController::class,'destroy']);
 
-<<<<<<< HEAD
 Route::post('/addUser', [UserController::class, 'addUser']);
-=======
 Route::post('/addUser', [UserController::class, 'addUser']);
 Route::get('/Comments',[CommentController::class , 'Comments']);
 Route::delete('/deleteComment/{id}', [CommentController::class,'destroy']);
->>>>>>> 6e61e58bb03dcea75fe4a9b7ae973121078d6347

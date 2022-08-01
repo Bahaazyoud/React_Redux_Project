@@ -2,12 +2,21 @@
 import ShowUsers from "./admin/showUsers";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  import Register  from "./pages/Login/Register";
-import  Login  from "./pages/Login/login";
+import  Login  from "./pages/Login/Login";
 import { Home } from "./pages/Home";
+import { createContext, useState } from 'react';
+export const userContext = createContext();
+
+
+
 function App() {
+
+  const [userData, setUserData] = useState([]);
+
   return (
     <div >
-    
+     
+     <userContext.Provider value={{ userData, setUserData }}>
     <Router>
 
 
@@ -25,7 +34,7 @@ function App() {
 
     </Router>
 
-   
+    </userContext.Provider>
     </div>
  
   );

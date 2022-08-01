@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import axios from "axios";
-
+const dummy = [{
+  id:Math.random().toString(),
+  like:0
+}]
 export const Home = () => {
   const [res,setRes] = useState();
   const [userid,setuserid] = useState();
-  const [liked,setLiked] = useState(false);
-  const [count,setCount] = useState(0);
+  const [liked,setLiked] = useState(dummy);
+  const [count,setCount] = useState(false);
   useEffect(()=>{
     const soket = io("http://localhost:5000")
     console.log(soket.on("firstEvent",msg=>console.log(msg)));
@@ -20,40 +23,47 @@ export const Home = () => {
     content: null,
     user_id: sessionStorage.getItem("user_id"),
   });
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      let image = event.target.files[0];
-      reader.onloadend = () => {
-        setFormValue({
-          ...data,
-          imagePreview: reader.result,
-          image: data.image,
-        });
-      };
-      reader.readAsDataURL(image);
-    }
-  };
-  const Submit = (event) => {
-    event.preventDefault();
-    const api = {
-      content: data.content,
-      image:data.image,
-      user_id: data.user_id,
-    };
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     let reader = new FileReader();
+  //     let image = event.target.files[0];
+  //     reader.onloadend = () => {
+  //       setFormValue({
+  //         ...data,
+  //         imagePreview: reader.result,
+  //         image: data.image,
+  //       });
+  //     };
+  //     reader.readAsDataURL(image);
+  //   }
+  // };
+  // const Submit = (event) => {
+  //   event.preventDefault();
+  //   const api = {
+  //     content: data.content,
+  //     image:data.image,
+  //     user_id: data.user_id,
+  //   };
     
-    axios.post("http://127.0.0.1:8000/api/post", api);
-  };
+  //   axios.post("http://127.0.0.1:8000/api/post", api);
+  // };
   const valueHandler = (event) => {
     setFormValue({ ...data, [event.target.name]: event.target.value });
   };
+
   const likeHandleNotification = () => {
-    setLiked(true);
-    setCount(count+1);
+    setLiked({
+      ...dummy,
+      like:+1
+    });
+    setCount(true);
   }
   const handleNotification = () => {
-    setLiked(false);
-    setCount(count-1);
+    setLiked({
+      ...dummy,
+      like:-1
+    });
+    setCount(true);
   }
   return (
     <div>
@@ -612,12 +622,13 @@ export const Home = () => {
                             <img src="images/resources/admin2.jpg" alt="" />
                           </figure>
                           <div className="newpst-input">
-                            <form method="POST" onSubmit={Submit} encType="multipart/form-data">
-                              <textarea rows={2} placeholder="write something" id='content' value={data.content} name='content' onChange={valueHandler} />
+                            <form method="POST" action="http://127.0.0.1:8000/api/post" encType="multipart/form-data">
+                              <input type="hidden" name="user_id" value={sessionStorage.getItem("user_id")}/>
+                              <textarea rows={2} placeholder="write something" id='content'  name='content'  />
                               <div class="attachments">
                                 <ul>
                                   <li style={{display:'flext',justifyContent:'center',alignItems:'center'}}>
-                                  <input type='file' id="image" name='image' onChange={onImageChange} style={{ display: 'none', visibility: 'none' }} />        
+                                  <input type='file' id="image" name='image' onChange={valueHandler} style={{ display: 'none', visibility: 'none' }} />        
                                     <label class="fileContainer" htmlFor='image'>
                                     <i class="fa fa-image" style={{fontSize:'25px',color:'black'}}></i>
                                     </label>
@@ -644,7 +655,12 @@ export const Home = () => {
                                 <span>published: june,2 2018 19:PM</span>
                               </div>
                               <div className="post-meta">
-                                <img src={post.image} alt="" />
+                                <img src={`http://localhost:8000/uploads/${post.image}`} alt="" />
+                                <div className="description">
+                                  <p>
+                                  {post.content}
+                                  </p>
+                                </div>
                                 <div className="we-video-info">
                                   <ul>
                                     <li>
@@ -659,10 +675,10 @@ export const Home = () => {
                                         <ins>52</ins>
                                       </span>
                                     </li>
-                                    {liked ? (<li>
+                                    {count ? (<li>
                                       <span className="like" data-toggle="tooltip" title="like">
                                         <i className="ti-heart"/>
-                                        <ins>{count}</ins>
+                                        <ins>{liked.like}</ins>
                                       </span>  
                                     </li>):
                                     (<li>
@@ -705,11 +721,7 @@ export const Home = () => {
                                     </li>
                                   </ul>
                                 </div>
-                                <div className="description">
-                                  <p>
-                                  {post.content}
-                                  </p>
-                                </div>
+                   
                               </div>
                             </div>
                             <div className="coment-area">

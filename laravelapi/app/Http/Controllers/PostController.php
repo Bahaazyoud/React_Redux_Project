@@ -70,7 +70,7 @@ class PostController extends Controller
             $post->image=$filename;
         }
         $post->save();
-         return redirect("http://localhost:3004/");
+         return redirect("http://localhost:3000/");
     }
     public function join(Request $request)
     {

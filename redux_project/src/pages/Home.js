@@ -3,20 +3,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import { iteratorSymbol } from "immer/dist/internal";
 export const Home = () => {
-  const [res,setRes] = useState();
+  const [res, setRes] = useState();
   const [button, setbutton] = useState(false);
-  const [userid,setuserid] = useState();
-  const [liked,setLiked] = useState(false);
-  const [count,setCount] = useState(0);
+  const [userid, setuserid] = useState();
+  const [liked, setLiked] = useState(false);
+  const [count, setCount] = useState(0);
   // useEffect(()=>{
   //   const soket = io("http://localhost:5000")
   //   console.log(soket.on("firstEvent",msg=>console.log(msg)));
   // },[])
-  useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/api/join').then(res=>{
-      setRes(res.data)
-    }).catch(error=>console.log(error));
-  },[])
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/join")
+      .then((res) => {
+        setRes(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   // useEffect(()=>{
   //   const soket = io("http://localhost:5000")
@@ -34,10 +37,10 @@ export const Home = () => {
     content: null,
     user_id: sessionStorage.getItem("user_id"),
   });
-  
-  const disabledHandler = ()=>{
-    setbutton(false)
-  }
+
+  const disabledHandler = () => {
+    setbutton(false);
+  };
   // const onImageChange = (event) => {
   //   if (event.target.files && event.target.files[0]) {
   //     let reader = new FileReader();
@@ -59,7 +62,7 @@ export const Home = () => {
   //     image:data.image,
   //     user_id: data.user_id,
   //   };
-    
+
   //   axios.post("http://127.0.0.1:8000/api/post", api);
   // };
   // const onImageChange = (event) => {
@@ -90,17 +93,16 @@ export const Home = () => {
   //   setFormValue({ ...data, [event.target.name]: event.target.value });
   // };
   const likePost = () => {
-    setLiked(true)
-    setCount(count+1)
-  }
+    setLiked(true);
+    setCount(count + 1);
+  };
   const unlikePost = () => {
-    setLiked(false)
-    setCount(count+1)
-
-  }
+    setLiked(false);
+    setCount(count + 1);
+  };
   const [comment, setComment] = useState({
     text: "",
-    user_id: localStorage.getItem("user_id"),
+    user_id: sessionStorage.getItem("user_id"),
   });
 
   const commentChangeHandler = (e) => {
@@ -120,7 +122,7 @@ export const Home = () => {
       setComment({ ...comment, text: "" });
     }
   };
-  
+
   const [comments, setComments] = useState("");
   useEffect(() => {
     axios
@@ -630,7 +632,11 @@ export const Home = () => {
         <div className="topbar stick">
           <div className="logo p-2">
             <a title href="newsfeed.html">
-              <img src="images/TheBooksClub-logos_black.png" style={{ opacity:"0.6" }} alt="" />
+              <img
+                src="images/TheBooksClub-logos_black.png"
+                style={{ opacity: "0.6" }}
+                alt=""
+              />
             </a>
           </div>
           <div className="top-area">
@@ -1277,9 +1283,12 @@ export const Home = () => {
                               method="POST"
                               action="http://127.0.0.1:8000/api/post"
                               encType="multipart/form-data"
-                              
                             >
-                              <input type="hidden" name="user_id" value={sessionStorage.getItem("user_id")}/>
+                              <input
+                                type="hidden"
+                                name="user_id"
+                                value={sessionStorage.getItem("user_id")}
+                              />
                               <textarea
                                 rows={2}
                                 placeholder="write something"
@@ -1348,7 +1357,10 @@ export const Home = () => {
                                     <span>published: june,2 2018 19:PM</span>
                                   </div>
                                   <div className="post-meta">
-                                    <img src={`http://localhost:8000/uploads/${post.image}`} alt="" />
+                                    <img
+                                      src={`http://localhost:8000/uploads/${post.image}`}
+                                      alt=""
+                                    />
                                     <div className="we-video-info">
                                       <ul>
                                         <li>
@@ -1378,7 +1390,10 @@ export const Home = () => {
                                               data-toggle="tooltip"
                                               title="like"
                                             >
-                                              <i className="ti-heart" onClick={unlikePost}/>
+                                              <i
+                                                className="ti-heart"
+                                                onClick={unlikePost}
+                                              />
                                               <ins>{post.likes?.length}</ins>
                                             </span>
                                           </li>
@@ -1524,7 +1539,7 @@ export const Home = () => {
                                           />
                                           <input
                                             type="hidden"
-                                            value={localStorage.getItem(
+                                            value={sessionStorage.getItem(
                                               "user_id"
                                             )}
                                             name="user_id"

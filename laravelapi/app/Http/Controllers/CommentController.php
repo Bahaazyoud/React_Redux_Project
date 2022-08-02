@@ -42,9 +42,9 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        return Comment::where('post_id','like',$id)->get();
+       return DB::table('comments')->where('post_id','like',$id)->join('users','comments.user_id',"=",'users.id')->get();
     }
-
+// 
     /**
      * Update the specified resource in storage.
      *

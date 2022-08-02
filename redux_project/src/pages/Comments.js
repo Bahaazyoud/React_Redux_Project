@@ -28,6 +28,7 @@ const Comment = (props) => {
     }
   };
   useEffect(() => {
+    console.log(comments);
     axios
       .get(`http://127.0.0.1:8000/api/comment/${props.postId}`)
       .then((res) => {
@@ -47,7 +48,7 @@ const Comment = (props) => {
           display: "flex",
           flexDirection: "column",
           gap: "15px",
-          height: "200px",
+          maxHeight: "200px",
           overflowY: "scroll",
         }}
       >
@@ -56,13 +57,13 @@ const Comment = (props) => {
             return (
               <li>
                 <div className="comet-avatar">
-                  <img src="images/resources/comet-1.jpg" alt="" />
+                  <img src={`${post.image}`} alt="" />
                 </div>
                 <div className="we-comment">
                   <div className="coment-head">
                     <h5>
                       <a href="time-line.html" title>
-                        {post.id}
+                        {post.name}
                       </a>
                     </h5>
                   </div>

@@ -153,7 +153,7 @@ export const Home = () => {
             </span>
             <span className="mh-text">
               <a href="newsfeed.html" title>
-                <img src="images/logo2.png" alt="" />
+                <img src=" " alt="" />
               </a>
             </span>
             <span className="mh-btns-right">
@@ -628,9 +628,9 @@ export const Home = () => {
         </div>
         {/* responsive header */}
         <div className="topbar stick">
-          <div className="logo">
+          <div className="logo p-2">
             <a title href="newsfeed.html">
-              <img src="images/logo.png" alt="" />
+              <img src="images/TheBooksClub-logos_black.png" style={{ opacity:"0.6" }} alt="" />
             </a>
           </div>
           <div className="top-area">

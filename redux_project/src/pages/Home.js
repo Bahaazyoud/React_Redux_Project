@@ -1485,7 +1485,7 @@ export const Home = () => {
                                 </div>
                                 <div className="coment-area">
                                   <ul className="we-comet">
-                                    <Comments />
+                                    <Comments postId={post.id} />
                                   </ul>
                                 </div>
                               </div>

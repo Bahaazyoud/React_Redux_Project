@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
@@ -42,7 +42,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        return Comment::where('post_id','like',$id)->get();
     }
 
     /**

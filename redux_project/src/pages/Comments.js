@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 
 import axios from "axios";
 
-const Comment = () => {
+const Comment = (props) => {
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
   const [comment, setComment] = useState({
     text: "",
@@ -28,9 +28,11 @@ const Comment = () => {
     }
   };
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/comment").then((res) => {
-      setComments(res.data);
-    });
+    axios
+      .get(`http://127.0.0.1:8000/api/comment/${props.postId}`)
+      .then((res) => {
+        setComments(res.data);
+      });
   }, [ignored]);
   //   function handleClick() {
   //     console.log(ignored);
@@ -82,7 +84,7 @@ const Comment = () => {
           value={sessionStorage.getItem("user_id")}
           name="user_id"
         />
-        <input type="hidden" value="1" name="post_id" />
+        <input type="hidden" value={props.postId} name="post_id" />
         <button
           style={{
             background: "white",

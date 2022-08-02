@@ -84,12 +84,6 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function userProfile()
-    {
-        $userPost= DB::table('users')
-        ->join('posts', 'users.id', '=', 'posts.user_id')->where('user_id',1)->get();
-        return $userPost;
-    }
     public function show(Post $post)
     {
         //

@@ -4,12 +4,13 @@ const Profile = () => {
     const [res, setRes] = useState();
     const [name, setName] = useState();
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/userprofile').then(res => {
+        axios.get('http://127.0.0.1:8000/api/join').then(res => {
             console.log(res.data);
             setRes(res.data)
             setName(res.data[0].name);
         }).catch(error => console.log(error));
     }, [])
+    let userid = sessionStorage.getItem("user_id")
     return (
         <div>
             <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -552,8 +553,9 @@ const Profile = () => {
                                                     <span><i className="fa fa-users" />Posts</span>
                                                 </div>
                                                 <ul className="nearby-contct">
-                                                    {res?.map(post=>
-                                                    <li key={post.id}>
+                                                    {res?.map(post=>{
+                                                    if(post.user_id == userid )
+                                                    return (<li key={post.id}>
                                                         <div className="nearly-pepls">
                                                             {/* <figure>
                                                                 {/* <a href="time-line.html" title><img src={`http://localhost:8000/uploads/${post.image}`} alt=""/></a> */}
@@ -563,7 +565,7 @@ const Profile = () => {
                                                                 <a href="#" title className="add-butn" data-ripple>Delete</a>
                                                             </div>
                                                         </div>
-                                                    </li>)}
+                                                    </li>)})}
                                                 </ul>
                                                 <div className="lodmore"><button className="btn-view btn-load-more" /></div>
                                             </div>{/* photos */}

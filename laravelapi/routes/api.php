@@ -43,7 +43,10 @@ Route::get('getuser/{id}',[UserController::class , 'getUser']);
 //post
 Route::get('post',[PostController::class , 'index']);
 Route::post('post',[PostController::class , 'store']);
+Route::put('post',[PostController::class , 'store']);
 Route::get('join',[PostController::class , 'join']);
+Route::get('userprofile',[PostController::class , 'userProfile']);
+// http://127.0.0.1:8000/api/userprofile
 Route::post('join',[PostController::class , 'join']);
 // http://127.0.0.1:8000/api/join
 Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);

@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 // import { io } from "socket.io-client";
 import axios from "axios";
-const dummy = [{
-  id:Math.random().toString(),
-  like:0
-}]
+// import { iteratorSymbol } from "immer/dist/internal";
 export const Home = () => {
   const [res,setRes] = useState();
   const [button, setbutton] = useState(false);
   const [userid,setuserid] = useState();
-  const [liked,setLiked] = useState(dummy);
-  const [count,setCount] = useState(false);
+  const [liked,setLiked] = useState(false);
+  const [count,setCount] = useState(0);
   // useEffect(()=>{
   //   const soket = io("http://localhost:5000")
   //   console.log(soket.on("firstEvent",msg=>console.log(msg)));
@@ -37,6 +34,7 @@ export const Home = () => {
     content: null,
     user_id: sessionStorage.getItem("user_id"),
   });
+  
   const disabledHandler = ()=>{
     setbutton(false)
   }
@@ -64,47 +62,41 @@ export const Home = () => {
     
   //   axios.post("http://127.0.0.1:8000/api/post", api);
   // };
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      let image = event.target.files[0];
-      reader.onloadend = () => {
-        setFormValue({
-          ...data,
-          imagePreview: reader.result,
-          image: data.image,
-        });
-      };
-      reader.readAsDataURL(image);
-    }
-  };
-  const Submit = (event) => {
-    event.preventDefault();
-    const api = {
-      content: data.content,
-      image: data.image,
-      user_id: data.user_id,
-    };
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     let reader = new FileReader();
+  //     let image = event.target.files[0];
+  //     reader.onloadend = () => {
+  //       setFormValue({
+  //         ...data,
+  //         imagePreview: reader.result,
+  //         image: data.image,
+  //       });
+  //     };
+  //     reader.readAsDataURL(image);
+  //   }
+  // };
+  // const Submit = (event) => {
+  //   event.preventDefault();
+  //   const api = {
+  //     content: data.content,
+  //     image: data.image,
+  //     user_id: data.user_id,
+  //   };
 
-    axios.post("http://127.0.0.1:8000/api/post", api);
-  };
-  const valueHandler = (event) => {
-    setFormValue({ ...data, [event.target.name]: event.target.value });
-  };
-
-  const likeHandleNotification = () => {
-    setLiked({
-      ...dummy,
-      like:+1
-    });
-    setCount(true);
+  //   axios.post("http://127.0.0.1:8000/api/post", api);
+  // };
+  // const valueHandler = (event) => {
+  //   setFormValue({ ...data, [event.target.name]: event.target.value });
+  // };
+  const likePost = () => {
+    setLiked(true)
+    setCount(count+1)
   }
-  const handleNotification = () => {
-    setLiked({
-      ...dummy,
-      like:-1
-    });
-    setCount(true);
+  const unlikePost = () => {
+    setLiked(false)
+    setCount(count+1)
+
   }
   const [comment, setComment] = useState({
     text: "",
@@ -128,6 +120,7 @@ export const Home = () => {
       setComment({ ...comment, text: "" });
     }
   };
+  
   const [comments, setComments] = useState("");
   useEffect(() => {
     axios
@@ -1385,8 +1378,8 @@ export const Home = () => {
                                               data-toggle="tooltip"
                                               title="like"
                                             >
-                                              <i className="ti-heart" />
-                                              <ins>{count}</ins>
+                                              <i className="ti-heart" onClick={unlikePost}/>
+                                              <ins>{post.likes?.length}</ins>
                                             </span>
                                           </li>
                                         ) : (
@@ -1398,9 +1391,9 @@ export const Home = () => {
                                             >
                                               <i
                                                 className="ti-heart-broken"
-                                                onClick={likeHandleNotification}
+                                                onClick={likePost}
                                               />
-                                              <ins>{count}</ins>
+                                              <ins>{post.likes?.length}</ins>
                                             </span>
                                           </li>
                                         )}

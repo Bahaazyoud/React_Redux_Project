@@ -5,6 +5,7 @@ import AddUser from "./admin/AddUser";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  import Register  from "./pages/Login/Register";
 import  Login  from "./pages/Login/login";
+import Profile from "./pages/Profile/UserProfile";
 import { Home } from "./pages/Home";
 import { Provider } from 'react-redux';
 import Comments from './admin/Comments';
@@ -27,6 +28,7 @@ function App() {
 
         <Route exact path="/comments" element={<Comments/>} />
         <Route exact path="/Posts" element={<Posts/>} />
+        <Route exact path="/profile" element={<Profile/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/" element={<Home />} />
 

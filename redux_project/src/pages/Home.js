@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import { io } from "socket.io-client";
 import axios from "axios";
+import Comments from "./Comments";
 // import { iteratorSymbol } from "immer/dist/internal";
 export const Home = () => {
   const [res, setRes] = useState();
@@ -100,38 +101,38 @@ export const Home = () => {
     setLiked(false);
     setCount(count + 1);
   };
-  const [comment, setComment] = useState({
-    text: "",
-    user_id: sessionStorage.getItem("user_id"),
-  });
+  // const [comment, setComment] = useState({
+  //   text: "",
+  //   user_id: sessionStorage.getItem("user_id"),
+  // });
 
-  const commentChangeHandler = (e) => {
-    setComment({ ...comment, text: e.target.value });
-  };
+  // const commentChangeHandler = (e) => {
+  //   setComment({ ...comment, text: e.target.value });
+  // };
   window.axios = require("axios");
-  const commentHandler = (e) => {
-    e.preventDefault();
-    console.log(e);
-    if (!comment == "") {
-      const api = {
-        text: e.target[0].value,
-        user_id: e.target[1].value,
-        post_id: e.target[2].value,
-      };
-      axios.post("http://127.0.0.1:8000/api/comment", api);
-      setComment({ ...comment, text: "" });
-    }
-  };
+  // const commentHandler = (e) => {
+  //   e.preventDefault();
+  //   console.log(e);
+  //   if (!comment == "") {
+  //     const api = {
+  //       text: e.target[0].value,
+  //       user_id: e.target[1].value,
+  //       post_id: e.target[2].value,
+  //     };
+  //     axios.post("http://127.0.0.1:8000/api/comment", api);
+  //     setComment({ ...comment, text: "" });
+  //   }
+  // };
 
-  const [comments, setComments] = useState("");
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/comment")
-      .then((res) => {
-        setComments(res.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  // const [comments, setComments] = useState("");
+  // useEffect(() => {
+  //   axios
+  //     .get("http://127.0.0.1:8000/api/comment")
+  //     .then((res) => {
+  //       setComments(res.data);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, []);
   return (
     <div>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -1484,86 +1485,7 @@ export const Home = () => {
                                 </div>
                                 <div className="coment-area">
                                   <ul className="we-comet">
-                                    {comments &&
-                                      comments?.map((post) => {
-                                        return (
-                                          <li>
-                                            <div className="comet-avatar">
-                                              <img
-                                                src="images/resources/comet-1.jpg"
-                                                alt=""
-                                              />
-                                            </div>
-                                            <div className="we-comment">
-                                              <div className="coment-head">
-                                                <h5>
-                                                  <a
-                                                    href="time-line.html"
-                                                    title
-                                                  >
-                                                    {post.id}
-                                                  </a>
-                                                </h5>
-                                              </div>
-                                              <p>{post.text}</p>
-                                            </div>
-                                          </li>
-                                        );
-                                      })}
-                                    <li>
-                                      <a
-                                        href="#"
-                                        title
-                                        className="showmore underline"
-                                      >
-                                        more comments
-                                      </a>
-                                    </li>
-                                    <li className="post-comment">
-                                      <div className="comet-avatar">
-                                        <img
-                                          src="images/resources/comet-1.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div className="post-comt-box">
-                                        <form
-                                          onSubmit={commentHandler}
-                                          method="post"
-                                        >
-                                          <textarea
-                                            name="comment"
-                                            placeholder="Post your comment"
-                                            value={comment.text}
-                                            onChange={commentChangeHandler}
-                                          />
-                                          <input
-                                            type="hidden"
-                                            value={sessionStorage.getItem(
-                                              "user_id"
-                                            )}
-                                            name="user_id"
-                                          />
-                                          <input
-                                            type="hidden"
-                                            value="1"
-                                            name="post_id"
-                                          />
-                                          <button
-                                            style={{
-                                              color: "#088dcd",
-                                              height: "100%",
-                                              textShadow:
-                                                "#00000030 2px 0px 13px",
-                                            }}
-                                            type="submit"
-                                          >
-                                            <i className="ti-comment" />{" "}
-                                            {/* {comments[0].id} here */}
-                                          </button>
-                                        </form>
-                                      </div>
-                                    </li>
+                                    <Comments />
                                   </ul>
                                 </div>
                               </div>

@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-
+import "./comments.css";
 import axios from "axios";
 
 const Comment = (props) => {
@@ -9,7 +9,14 @@ const Comment = (props) => {
     user_id: sessionStorage.getItem("user_id"),
   });
   const [comments, setComments] = useState("");
-
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    console.log(e);
+    const api = {
+      comment_id: e.target[0].value,
+    };
+    axios.delete(`http://127.0.0.1:8000/api/comment/${e.target[0].value}`, api);
+  };
   const commentChangeHandler = (e) => {
     setComment({ ...comment, text: e.target.value });
   };
@@ -38,6 +45,8 @@ const Comment = (props) => {
   //   function handleClick() {
   //     console.log(ignored);
   //   }
+  let nameClass = "bluee";
+  let commentsClass = "comment";
   return (
     <>
       <ul
@@ -55,14 +64,35 @@ const Comment = (props) => {
         {comments &&
           comments?.map((post) => {
             return (
-              <li>
+              <li
+                className={
+                  post.user_id == sessionStorage.getItem("user_id") &&
+                  commentsClass
+                }
+              >
+                {post.user_id == sessionStorage.getItem("user_id") && (
+                  <form className="delete" onSubmit={deleteHandler}>
+                    <input type="hidden" value={`${post.id}`} />
+                    <button className="delete" type="submit">
+                      Delete
+                    </button>
+                  </form>
+                )}
+
                 <div className="comet-avatar">
                   <img src={`${post.image}`} alt="" />
                 </div>
                 <div className="we-comment">
                   <div className="coment-head">
                     <h5>
-                      <a href="time-line.html" title>
+                      <a
+                        href="http://localhost:3000/profile"
+                        className={
+                          post.user_id == sessionStorage.getItem("user_id") &&
+                          nameClass
+                        }
+                      >
+                        {console.log(post)}
                         {post.name}
                       </a>
                     </h5>
@@ -79,7 +109,6 @@ const Comment = (props) => {
           placeholder="Post your comment"
           value={comment.text}
           onChange={commentChangeHandler}
-          className="mt-4"
         />
         <input
           type="hidden"
@@ -90,16 +119,13 @@ const Comment = (props) => {
         <button
           style={{
             background: "white",
-            border: "#5a4ae3 solid 2px",
+            border: " rgb(8 141 205 / 62%) solid 2px",
             borderRadius: " 0px 10px 10px",
-            color: "#5a4ae3",
+            color: "#088dcd",
             height: "100%",
             textShadow: "#00000030 2px 0px 13px",
-            float:"right"
           }}
-          
           type="submit"
-          className="mt-2"
         >
           Comment
         </button>

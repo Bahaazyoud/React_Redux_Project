@@ -1,0 +1,16 @@
+.bluee {
+  color: #006ca0c9;
+}
+.comment {
+  order: -1;
+  position: relative;
+}
+.delete {
+  background-color: balck;
+  color: red !important;
+  position: absolute;
+  left: 120px;
+  top: 0;
+  display: inline;
+  background-color: transparent;
+}

@@ -76,4 +76,8 @@ class CommentController extends Controller
         $app->delete();
         return redirect()->back()->with('success', 'Comment has been ignored');
     }
+    public function dell($id)
+    {
+        return Comment::destroy($id);
+    }
 }

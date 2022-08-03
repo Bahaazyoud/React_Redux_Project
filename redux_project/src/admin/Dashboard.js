@@ -257,7 +257,7 @@ const Dashboard = () => {
                             </li> */}
                             <li class="nav-item">
                                 <a class="nav-link" href="../Users">
-                                    <span class="menu-title">Users</span>
+                                    <span  class="menu-title">Users</span>
                                     <i class="mdi mdi-contacts menu-icon"></i>
                                 </a>
                             </li>
@@ -334,7 +334,7 @@ const Dashboard = () => {
                                     <div class="card bg-gradient-danger card-img-holder text-white">
                                         <div class="card-body">
                                             <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                            <h4 class="font-weight-normal mb-3">Users <i class="mdi mdi-contacts menu-icon mdi-24px float-right" ></i>
+                                            <h4  style={{ color:"white" }} class="font-weight-normal mb-3">Users <i class="mdi mdi-contacts menu-icon mdi-24px float-right" ></i>
                                             </h4>
                                             {/* {users && users.map((user) => ( */}
                                             <h2 class="mb-5">{users.length}</h2>
@@ -347,7 +347,7 @@ const Dashboard = () => {
                                     <div class="card bg-gradient-info card-img-holder text-white">
                                         <div class="card-body">
                                             <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                            <h4 class="font-weight-normal mb-3">Posts <i class="mdi mdi-format-list-bulleted menu-icon mdi-24px float-right"></i>
+                                            <h4  style={{ color:"white" }} class="font-weight-normal mb-3">Posts <i class="mdi mdi-format-list-bulleted menu-icon mdi-24px float-right"></i>
                                             </h4>
                                             <h2 class="mb-5">{posts.length}</h2>
                                             {/* <h6 class="card-text">Decreased by 10%</h6> */}
@@ -358,7 +358,7 @@ const Dashboard = () => {
                                     <div class="card bg-gradient-success card-img-holder text-white">
                                         <div class="card-body">
                                             <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                            <h4 class="font-weight-normal mb-3">Comments <i class="mdi mdi-comment menu-icon mdi-24px float-right"></i>
+                                            <h4  style={{ color:"white" }} class="font-weight-normal mb-3">Comments <i class="mdi mdi-comment menu-icon mdi-24px float-right"></i>
                                             </h4>
                                             <h2 class="mb-5">{comments.length}</h2>
                                             {/* <h6 class="card-text">Increased by 5%</h6> */}

@@ -70,7 +70,7 @@ const Register = () => {
               <div className="col-lg-8 col-md-12">
                 <div className="gray-form">
                   <div className="row">
-                    <div className="form-group mb-3 col-md-12">
+                    <div className="mb-3 col-md-12">
                       <label className="form-label">Your Name</label>
                       <input
                         onChange={(e) =>

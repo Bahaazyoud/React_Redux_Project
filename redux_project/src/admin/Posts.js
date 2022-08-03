@@ -317,7 +317,7 @@ const Posts = () => {
                                                             <td>{post.id}</td>
                                                             <td> {post.user_id}</td>
                                                             <td> {post.content}</td>
-                                                            <td> {post.image}</td>
+                                                            <td><img src={post.image} alt="" /> </td>
                                                             <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(post.id) }}>Delete</button>
                                                             </td>
                                                         </tr>

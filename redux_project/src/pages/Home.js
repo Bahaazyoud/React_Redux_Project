@@ -172,353 +172,37 @@ export const Home = () => {
           <nav id="menu" className="res-menu">
             <ul>
               <li>
-                <span>Home</span>
-                <ul>
-                  <li>
-                    <a href="index-2.html" title>
-                      Home Social
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index2.html" title>
-                      Home Social 2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index-company.html" title>
-                      Home Company
-                    </a>
-                  </li>
-                  <li>
-                    <a href="landing.html" title>
-                      Login page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="logout.html" title>
-                      Logout Page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="newsfeed.html" title>
-                      news feed
-                    </a>
-                  </li>
-                </ul>
+                <a href="/landing">Home</a>
+              
               </li>
               <li>
-                <span>Time Line</span>
-                <ul>
-                  <li>
-                    <a href="time-line.html" title>
-                      timeline
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-friends.html" title>
-                      timeline friends
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-groups.html" title>
-                      timeline groups
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-pages.html" title>
-                      timeline pages
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-photos.html" title>
-                      timeline photos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-videos.html" title>
-                      timeline videos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="fav-page.html" title>
-                      favourit page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="groups.html" title>
-                      groups page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="page-likers.html" title>
-                      Likes page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="people-nearby.html" title>
-                      people nearby
-                    </a>
-                  </li>
-                </ul>
+                <a href="/">Time Line</a>
+                
               </li>
               <li>
-                <span>Account Setting</span>
-                <ul>
-                  <li>
-                    <a href="create-fav-page.html" title>
-                      create fav page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-account-setting.html" title>
-                      edit account setting
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-interest.html" title>
-                      edit-interest
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-password.html" title>
-                      edit-password
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-profile-basic.html" title>
-                      edit profile basics
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-work-eductation.html" title>
-                      edit work educations
-                    </a>
-                  </li>
-                  <li>
-                    <a href="messages.html" title>
-                      message box
-                    </a>
-                  </li>
-                  <li>
-                    <a href="inbox.html" title>
-                      Inbox
-                    </a>
-                  </li>
-                  <li>
-                    <a href="notifications.html" title>
-                      notifications page
-                    </a>
-                  </li>
-                </ul>
+                <a href="/profile">Profile </a>
+               
               </li>
-              <li>
-                <span>forum</span>
-                <ul>
-                  <li>
-                    <a href="forum.html" title>
-                      Forum Page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="forums-category.html" title>
-                      Fourm Category
-                    </a>
-                  </li>
-                  <li>
-                    <a href="forum-open-topic.html" title>
-                      Forum Open Topic
-                    </a>
-                  </li>
-                  <li>
-                    <a href="forum-create-topic.html" title>
-                      Forum Create Topic
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span>Our Shop</span>
-                <ul>
-                  <li>
-                    <a href="shop.html" title>
-                      Shop Products
-                    </a>
-                  </li>
-                  <li>
-                    <a href="shop-masonry.html" title>
-                      Shop Masonry Products
-                    </a>
-                  </li>
-                  <li>
-                    <a href="shop-single.html" title>
-                      Shop Detail Page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="shop-cart.html" title>
-                      Shop Product Cart
-                    </a>
-                  </li>
-                  <li>
-                    <a href="shop-checkout.html" title>
-                      Product Checkout
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span>Our Blog</span>
-                <ul>
-                  <li>
-                    <a href="blog-grid-wo-sidebar.html" title>
-                      Our Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-grid-right-sidebar.html" title>
-                      Blog with R-Sidebar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-grid-left-sidebar.html" title>
-                      Blog with L-Sidebar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-masonry.html" title>
-                      Blog Masonry Style
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-list-wo-sidebar.html" title>
-                      Blog List Style
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-list-right-sidebar.html" title>
-                      Blog List with R-Sidebar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-list-left-sidebar.html" title>
-                      Blog List with L-Sidebar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="blog-detail.html" title>
-                      Blog Post Detail
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span>Portfolio</span>
-                <ul>
-                  <li>
-                    <a href="portfolio-2colm.html" title>
-                      Portfolio 2col
-                    </a>
-                  </li>
-                  <li>
-                    <a href="portfolio-3colm.html" title>
-                      Portfolio 3col
-                    </a>
-                  </li>
-                  <li>
-                    <a href="portfolio-4colm.html" title>
-                      Portfolio 4col
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span>Support &amp; Help</span>
-                <ul>
-                  <li>
-                    <a href="support-and-help.html" title>
-                      Support &amp; Help
-                    </a>
-                  </li>
-                  <li>
-                    <a href="support-and-help-detail.html" title>
-                      Support &amp; Help Detail
-                    </a>
-                  </li>
-                  <li>
-                    <a href="support-and-help-search-result.html" title>
-                      Support &amp; Help Search Result
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span>More pages</span>
-                <ul>
-                  <li>
-                    <a href="careers.html" title>
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="career-detail.html" title>
-                      Career Detail
-                    </a>
-                  </li>
-                  <li>
-                    <a href="404.html" title>
-                      404 error page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="404-2.html" title>
-                      404 Style2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="faq.html" title>
-                      faq's page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="insights.html" title>
-                      insights
-                    </a>
-                  </li>
-                  <li>
-                    <a href="knowledge-base.html" title>
-                      knowledge base
-                    </a>
-                  </li>
-                </ul>
-              </li>
+             
+               
+               
+               
+               
               <li>
                 <a href="about.html" title>
                   about
                 </a>
               </li>
-              <li>
-                <a href="about-company.html" title>
-                  About Us2
-                </a>
-              </li>
+             
               <li>
                 <a href="contact.html" title>
                   contact
                 </a>
               </li>
-              <li>
-                <a href="contact-branches.html" title>
-                  Contact Us2
-                </a>
-              </li>
-              <li>
-                <a href="widgets.html" title>
-                  Widgts
-                </a>
-              </li>
+              
             </ul>
           </nav>
-          <nav id="shoppingbag">
+          {/* <nav id="shoppingbag">
             <div>
               <div className>
                 <form method="post">
@@ -627,8 +311,8 @@ export const Home = () => {
                 </form>
               </div>
             </div>
-          </nav>
-        </div>
+          </nav>*/}
+        </div> 
         {/* responsive header */}
         <div className="topbar stick">
           <div className="logo p-2">
@@ -643,193 +327,36 @@ export const Home = () => {
           <div className="top-area">
             <ul className="main-menu">
               <li>
-                <a href="#" title>
+                <a href="/landing"  >
                   Home
                 </a>
-                <ul>
-                  <li>
-                    <a href="index-2.html" title>
-                      Home Social
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index2.html" title>
-                      Home Social 2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index-company.html" title>
-                      Home Company
-                    </a>
-                  </li>
-                  <li>
-                    <a href="landing.html" title>
-                      Login page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="logout.html" title>
-                      Logout Page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="newsfeed.html" title>
-                      news feed
-                    </a>
-                  </li>
-                </ul>
+               
               </li>
               <li>
-                <a href="#" title>
-                  timeline
+                <a href="/" >
+                  Timeline
+                </a>
+                
+              </li>
+              <li>
+                <a href="/profile"  >
+                  Profile
                 </a>
                 <ul>
                   <li>
-                    <a href="time-line.html" title>
-                      timeline
+                    <a href="/login" title>
+                      Login
                     </a>
                   </li>
                   <li>
-                    <a href="timeline-friends.html" title>
-                      timeline friends
+                    <a href="/register" title>
+                      Create an account
                     </a>
                   </li>
-                  <li>
-                    <a href="timeline-groups.html" title>
-                      timeline groups
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-pages.html" title>
-                      timeline pages
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-photos.html" title>
-                      timeline photos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="timeline-videos.html" title>
-                      timeline videos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="fav-page.html" title>
-                      favourit page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="groups.html" title>
-                      groups page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="page-likers.html" title>
-                      Likes page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="people-nearby.html" title>
-                      people nearby
-                    </a>
-                  </li>
+                  
                 </ul>
               </li>
-              <li>
-                <a href="#" title>
-                  account settings
-                </a>
-                <ul>
-                  <li>
-                    <a href="create-fav-page.html" title>
-                      create fav page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-account-setting.html" title>
-                      edit account setting
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-interest.html" title>
-                      edit-interest
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-password.html" title>
-                      edit-password
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-profile-basic.html" title>
-                      edit profile basics
-                    </a>
-                  </li>
-                  <li>
-                    <a href="edit-work-eductation.html" title>
-                      edit work educations
-                    </a>
-                  </li>
-                  <li>
-                    <a href="messages.html" title>
-                      message box
-                    </a>
-                  </li>
-                  <li>
-                    <a href="inbox.html" title>
-                      Inbox
-                    </a>
-                  </li>
-                  <li>
-                    <a href="notifications.html" title>
-                      notifications page
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#" title>
-                  more pages
-                </a>
-                <ul>
-                  <li>
-                    <a href="404.html" title>
-                      404 error page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="about.html" title>
-                      about
-                    </a>
-                  </li>
-                  <li>
-                    <a href="contact.html" title>
-                      contact
-                    </a>
-                  </li>
-                  <li>
-                    <a href="faq.html" title>
-                      faq's page
-                    </a>
-                  </li>
-                  <li>
-                    <a href="insights.html" title>
-                      insights
-                    </a>
-                  </li>
-                  <li>
-                    <a href="knowledge-base.html" title>
-                      knowledge base
-                    </a>
-                  </li>
-                  <li>
-                    <a href="widgets.html" title>
-                      Widgts
-                    </a>
-                  </li>
-                </ul>
-              </li>
+               
             </ul>
             <ul className="setting-area">
               <li>
@@ -988,26 +515,7 @@ export const Home = () => {
                   </a>
                 </div>
               </li>
-              <li>
-                <a href="#" title="Languages" data-ripple>
-                  <i className="fa fa-globe" />
-                </a>
-                <div className="dropdowns languages">
-                  <a href="#" title>
-                    <i className="ti-check" />
-                    English
-                  </a>
-                  <a href="#" title>
-                    Arabic
-                  </a>
-                  <a href="#" title>
-                    Dutch
-                  </a>
-                  <a href="#" title>
-                    French
-                  </a>
-                </div>
-              </li>
+               
             </ul>
             <div className="user-img">
               <img src="images/resources/admin.jpg" alt="" />
@@ -1130,7 +638,7 @@ export const Home = () => {
                           </ul>
                         </div>
                         {/* Shortcuts */}
-                        <div className="widget">
+                        {/* <div className="widget">
                           <h4 className="widget-title">Recent Activity</h4>
                           <ul className="activitiez">
                             <li>
@@ -1171,9 +679,9 @@ export const Home = () => {
                               </div>
                             </li>
                           </ul>
-                        </div>
+                        </div> */}
                         {/* recent activites */}
-                        <div className="widget stick-widget">
+                        {/* <div className="widget stick-widget">
                           <h4 className="widget-title">Who's follownig</h4>
                           <ul className="followers">
                             <li>
@@ -1267,7 +775,7 @@ export const Home = () => {
                               </div>
                             </li>
                           </ul>
-                        </div>
+                        </div> */}
                         {/* who's following */}
                       </aside>
                     </div>
@@ -1358,10 +866,14 @@ export const Home = () => {
                                     <span>published: june,2 2018 19:PM</span>
                                   </div>
                                   <div className="post-meta">
+                                  <div className="description">
+                                      <p>{post.content}</p>
+                                    </div>
                                     <img
                                       src={`http://localhost:8000/uploads/${post.image}`}
                                       alt=""
                                     />
+                                    
                                     <div className="we-video-info">
                                       <ul>
                                         <li>
@@ -1478,9 +990,7 @@ export const Home = () => {
                                         </li>
                                       </ul>
                                     </div>
-                                    <div className="description">
-                                      <p>{post.content}</p>
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 <div className="coment-area">
@@ -1497,7 +1007,7 @@ export const Home = () => {
                     {/* centerl meta */}
                     <div className="col-lg-3">
                       <aside className="sidebar static">
-                        <div className="widget">
+                        {/* <div className="widget">
                           <h4 className="widget-title">Your page</h4>
                           <div className="your-page">
                             <figure>
@@ -1542,7 +1052,6 @@ export const Home = () => {
                                   </a>
                                 </li>
                               </ul>
-                              {/* Tab panes */}
                               <div className="tab-content">
                                 <div
                                   className="tab-pane active fade show "
@@ -1712,7 +1221,7 @@ export const Home = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                         {/* page like widget */}
                         <div className="widget">
                           <div className="banner medium-opacity bluesh">
@@ -1738,7 +1247,32 @@ export const Home = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="widget friend-list stick-widget">
+
+                        <div className="widget mt-4">
+                          <div className="banner medium-opacity bluesh">
+                            <div
+                              className="bg-image"
+                              style={{
+                                backgroundImage:
+                                  "url(images/shiromani-kant-mo3FOTG62ao-unsplash.jpg)",
+                              }}
+                            />
+                            <div className="baner-top">
+                              <span>
+                                <img alt="" src="images/book-icon.png" />
+                              </span>
+                              <i className="fa fa-ellipsis-h" />
+                            </div>
+                            <div className="banermeta">
+                              <p>Books Store Adverstisment</p>
+                              <span>Offers</span>
+                              <a data-ripple title href="#">
+                                start now!
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        {/* <div className="widget friend-list stick-widget">
                           <h4 className="widget-title">Friends</h4>
                           <div id="searchDir" />
                           <ul id="people-list" className="friendz-list">
@@ -2046,7 +1580,7 @@ export const Home = () => {
                               </form>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                         {/* friends list sidebar */}
                       </aside>
                     </div>
@@ -2064,14 +1598,11 @@ export const Home = () => {
                 <div className="widget">
                   <div className="foot-logo">
                     <div className="logo">
-                      <a href="index-2.html" title>
-                        <img src="images/logo.png" alt="" />
+                      <a href="/landing" className="ml-3" title>
+                        <img src="images/TheBooksClub-logos_black.png" alt="" />
                       </a>
                     </div>
-                    <p>
-                      The trio took this simple idea and built it into the
-                      world’s leading carpooling platform.
-                    </p>
+                     
                   </div>
                   <ul className="location">
                     <li>

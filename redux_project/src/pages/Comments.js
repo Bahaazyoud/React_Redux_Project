@@ -49,9 +49,6 @@ const Comment = (props) => {
         setComments(res.data);
       });
   }, [ignored]);
-  //   function handleClick() {
-  //     console.log(ignored);
-  //   }
   let nameClass = "bluee";
   let commentsClass = "comment";
   return (

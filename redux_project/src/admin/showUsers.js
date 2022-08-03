@@ -306,6 +306,7 @@ const ShowUsers = () => {
                                                         <th>ID</th>
                                                         <th>User Name</th>
                                                         <th>Email</th>
+                                                        <th>Image</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
@@ -315,6 +316,7 @@ const ShowUsers = () => {
                                                             <td>{user.id}</td>
                                                             <td> {user.name}</td>
                                                             <td> {user.email}</td>
+                                                            <td> <img src={`http://127.0.0.1:8000/img/${user.image}`} alt="" /></td>
                                                             <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(user.id) }}>Delete</button>
                                                             </td>
                                                         </tr>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 
 import { useNavigate } from 'react-router-dom';
@@ -6,10 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, loadPosts } from './redux/actions';
 
+import axios from "axios";
+
+
 
 
 const Posts = () => {
     let dispatch = useDispatch();
+    const [res, setRes] = useState();
+
 
     const { posts } = useSelector(state => state.posts);
 
@@ -27,13 +32,22 @@ const Posts = () => {
 
         if (window.confirm("Are you sure you want to delete this post?")) {
             dispatch(deletePost(id));
-            
+
 
         }
-
-
-
     };
+
+    useEffect(() => {
+        axios
+            .get("http://127.0.0.1:8000/api/join")
+            .then((res) => {
+                setRes(res.data);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
+
+
     return (
         <div>
 
@@ -312,10 +326,10 @@ const Posts = () => {
                                                 </thead>
                                                 <tbody>
                                                     {posts && posts.map((post) => (
-                                                        
+
                                                         <tr key={post.id}>
                                                             <td>{post.id}</td>
-                                                            <td> {post.user_id}</td>
+                                                            <td> {post.name}</td>
                                                             <td> {post.content}</td>
                                                             <td><img src={`http://127.0.0.1:8000/uploads/${post.image}`} alt="" /> </td>
                                                             <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(post.id) }}>Delete</button>

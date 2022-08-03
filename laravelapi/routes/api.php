@@ -72,3 +72,5 @@ Route::post('/addUser', [UserController::class, 'addUser']);
 Route::post('/addUser', [UserController::class, 'addUser']);
 Route::get('/Comments',[CommentController::class , 'Comments']);
 Route::delete('/deleteComment/{id}', [CommentController::class,'destroy']);
+
+Route::get('joincomment',[CommentController::class , 'join']);

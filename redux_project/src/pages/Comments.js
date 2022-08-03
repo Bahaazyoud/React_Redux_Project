@@ -65,6 +65,8 @@ const Comment = (props) => {
                   commentsClass
                 }
               >
+                {post.user_id == sessionStorage.getItem("user_id") &&
+                  props.userImage(`http://localhost:8000/img/${post.image}`)}
                 {post.user_id == sessionStorage.getItem("user_id") && (
                   <form className="delete" onSubmit={deleteHandler}>
                     <input type="hidden" value={`${post.commentId}`} />

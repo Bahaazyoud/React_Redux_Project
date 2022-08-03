@@ -4,7 +4,10 @@ import Comments from "./Comments";
 export const Home = () => {
   const [res, setRes] = useState();
   const [button, setbutton] = useState(false);
-  const [userid, setuserid] = useState();
+  // const [userid, setuserid] = useState();
+  const [userImage, setUserImage] = useState(
+    "http://localhost:8000/uploads/user_icon.png"
+  );
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -130,7 +133,7 @@ export const Home = () => {
                       <div className="central-meta">
                         <div className="new-postbox">
                           <figure>
-                            <img src="images/resources/admin2.jpg" alt="" />
+                            <img src={`${userImage}`} alt="" />
                           </figure>
                           <div className="newpst-input">
                             <form
@@ -176,6 +179,7 @@ export const Home = () => {
                                         style={{
                                           fontSize: "25px",
                                           color: "black",
+                                          cursor: "pointer",
                                         }}
                                       ></i>
                                     </label>
@@ -346,7 +350,10 @@ export const Home = () => {
                                   </div>
                                   <div className="coment-area ">
                                     <ul className="we-comet">
-                                      <Comments postId={post.id} />
+                                      <Comments
+                                        userImage={setUserImage}
+                                        postId={post.id}
+                                      />
                                     </ul>
                                   </div>
                                 </div>

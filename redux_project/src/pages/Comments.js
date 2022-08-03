@@ -11,18 +11,14 @@ const Comment = (props) => {
   const [comments, setComments] = useState("");
   const deleteHandler = (e) => {
     e.preventDefault();
-    console.log(e);
-    const api = {
-      comment_id: e.target[0].value,
-    };
-    axios.delete(`http://127.0.0.1:8000/api/comment/${e.target[0].value}`, api);
+    axios.delete(`http://127.0.0.1:8000/api/comment/${e.target[0].value}`);
+    forceUpdate();
   };
   const commentChangeHandler = (e) => {
     setComment({ ...comment, text: e.target.value });
   };
   const commentHandler = (e) => {
     e.preventDefault();
-    console.log(e);
     if (!comment == "") {
       const api = {
         text: e.target[0].value,
@@ -35,7 +31,6 @@ const Comment = (props) => {
     }
   };
   useEffect(() => {
-    console.log(comments);
     axios
       .get(`http://127.0.0.1:8000/api/comment/${props.postId}`)
       .then((res) => {
@@ -72,7 +67,7 @@ const Comment = (props) => {
               >
                 {post.user_id == sessionStorage.getItem("user_id") && (
                   <form className="delete" onSubmit={deleteHandler}>
-                    <input type="hidden" value={`${post.id}`} />
+                    <input type="hidden" value={`${post.commentId}`} />
                     <button className="delete" type="submit">
                       Delete
                     </button>
@@ -80,7 +75,11 @@ const Comment = (props) => {
                 )}
 
                 <div className="comet-avatar">
-                  <img src={`${post.image}`} alt="" />
+                  <img
+                    style={{ height: "40px", width: "40px" }}
+                    src={`http://localhost:8000/img/${post.image}`}
+                    alt=""
+                  />
                 </div>
                 <div className="we-comment">
                   <div className="coment-head">
@@ -92,7 +91,6 @@ const Comment = (props) => {
                           nameClass
                         }
                       >
-                        {console.log(post)}
                         {post.name}
                       </a>
                     </h5>

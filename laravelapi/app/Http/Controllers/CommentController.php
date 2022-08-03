@@ -43,6 +43,7 @@ class CommentController extends Controller
     public function show($id)
     {
        return DB::table('comments')->where('post_id','like',$id)->join('users','comments.user_id',"=",'users.id')->get();
+    //    return DB::table('users')->join('comments','comments_id','=','users.id')->where('post_id','like',$id)->get();
     }
 // 
     /**
@@ -78,6 +79,6 @@ class CommentController extends Controller
     }
     public function dell($id)
     {
-        return Comment::destroy($id);
+        return Comment::where('commentId','=',$id)->delete();
     }
 }

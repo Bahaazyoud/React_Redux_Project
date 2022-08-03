@@ -6,11 +6,15 @@
   position: relative;
 }
 .delete {
-  background-color: balck;
-  color: red !important;
+  z-index: 2;
+  color: rgb(241, 11, 11);
   position: absolute;
   left: 120px;
   top: 0;
   display: inline;
   background-color: transparent;
+  transition: 0.3s ease;
+}
+.delete:hover {
+  color: rgb(187, 0, 0);
 }

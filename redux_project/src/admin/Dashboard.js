@@ -1,8 +1,52 @@
-import React from 'react'
 import './style.css'
+import React, { useEffect } from 'react'
+
+import { useNavigate } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { loadComments, loadPosts, loadUsers } from './redux/actions';
 
 const Dashboard = () => {
-     
+
+    let dispatch = useDispatch();
+
+    const { posts } = useSelector(state => state.posts);
+
+    let nav = useNavigate();
+
+    useEffect(() => {
+
+        dispatch(loadPosts());
+        console.log(posts);
+
+    }, []);
+    let dispatch1 = useDispatch();
+
+    const { comments } = useSelector(state => state.comments);
+
+    let nav1 = useNavigate();
+
+
+    useEffect(() => {
+
+        dispatch(loadComments());
+        console.log(comments);
+
+    }, []);
+
+    let dispatch2 = useDispatch();
+
+    const { users } = useSelector(state => state.data);
+
+    let nav2 = useNavigate();
+
+
+    useEffect(() => {
+
+        dispatch(loadUsers());
+
+    }, []);
+
     return (
         <div>
 
@@ -278,11 +322,11 @@ const Dashboard = () => {
                                     </span> Dashboard
                                 </h3>
                                 <nav aria-label="breadcrumb">
-                                    <ul class="breadcrumb">
+                                    {/* <ul class="breadcrumb">
                                         <li class="breadcrumb-item active" aria-current="page">
                                             <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                 </nav>
                             </div>
                             <div class="row">
@@ -290,10 +334,12 @@ const Dashboard = () => {
                                     <div class="card bg-gradient-danger card-img-holder text-white">
                                         <div class="card-body">
                                             <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                            <h4 class="font-weight-normal mb-3">Weekly Sales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                                            <h4 class="font-weight-normal mb-3">Users <i class="mdi mdi-contacts menu-icon mdi-24px float-right" ></i>
                                             </h4>
-                                            <h2 class="mb-5">$ 15,0000</h2>
-                                            <h6 class="card-text">Increased by 60%</h6>
+                                            {/* {users && users.map((user) => ( */}
+                                            <h2 class="mb-5">{users.length}</h2>
+                                            {/* // <h6 class="card-text">Increased by 60%</h6> */}
+                                            {/* ))} */}
                                         </div>
                                     </div>
                                 </div>
@@ -301,10 +347,10 @@ const Dashboard = () => {
                                     <div class="card bg-gradient-info card-img-holder text-white">
                                         <div class="card-body">
                                             <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                            <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                                            <h4 class="font-weight-normal mb-3">Posts <i class="mdi mdi-format-list-bulleted menu-icon mdi-24px float-right"></i>
                                             </h4>
-                                            <h2 class="mb-5">45,6334</h2>
-                                            <h6 class="card-text">Decreased by 10%</h6>
+                                            <h2 class="mb-5">{posts.length}</h2>
+                                            {/* <h6 class="card-text">Decreased by 10%</h6> */}
                                         </div>
                                     </div>
                                 </div>
@@ -312,10 +358,10 @@ const Dashboard = () => {
                                     <div class="card bg-gradient-success card-img-holder text-white">
                                         <div class="card-body">
                                             <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                            <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                                            <h4 class="font-weight-normal mb-3">Comments <i class="mdi mdi-comment menu-icon mdi-24px float-right"></i>
                                             </h4>
-                                            <h2 class="mb-5">95,5741</h2>
-                                            <h6 class="card-text">Increased by 5%</h6>
+                                            <h2 class="mb-5">{comments.length}</h2>
+                                            {/* <h6 class="card-text">Increased by 5%</h6> */}
                                         </div>
                                     </div>
                                 </div>
@@ -346,63 +392,26 @@ const Dashboard = () => {
                                 <div class="col-12 grid-margin">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title">Recent Tickets</h4>
+                                            <h4 class="card-title">Recent Users</h4>
                                             <div class="table-responsive">
-                                                <table class="table">
+                                                <table class="table text-center">
                                                     <thead>
                                                         <tr>
-                                                            <th> Assignee </th>
-                                                            <th> Subject </th>
-                                                            <th> Status </th>
-                                                            <th> Last Update </th>
-                                                            <th> Tracking ID </th>
+                                                            <th> ID </th>
+                                                            <th> User Name </th>
+                                                            <th> Email </th>
+                                                            <th> Created At </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <img src="assets/images/faces/face1.jpg" class="me-2" alt="image" /> David Grey
-                                                            </td>
-                                                            <td> Fund is not recieved </td>
-                                                            <td>
-                                                                <label class="badge badge-gradient-success">DONE</label>
-                                                            </td>
-                                                            <td> Dec 5, 2017 </td>
-                                                            <td> WD-12345 </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <img src="assets/images/faces/face2.jpg" class="me-2" alt="image" /> Stella Johnson
-                                                            </td>
-                                                            <td> High loading time </td>
-                                                            <td>
-                                                                <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                            </td>
-                                                            <td> Dec 12, 2017 </td>
-                                                            <td> WD-12346 </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <img src="assets/images/faces/face3.jpg" class="me-2" alt="image" /> Marina Michel
-                                                            </td>
-                                                            <td> Website down for one week </td>
-                                                            <td>
-                                                                <label class="badge badge-gradient-info">ON HOLD</label>
-                                                            </td>
-                                                            <td> Dec 16, 2017 </td>
-                                                            <td> WD-12347 </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <img src="assets/images/faces/face4.jpg" class="me-2" alt="image" /> John Doe
-                                                            </td>
-                                                            <td> Loosing control on server </td>
-                                                            <td>
-                                                                <label class="badge badge-gradient-danger">REJECTED</label>
-                                                            </td>
-                                                            <td> Dec 3, 2017 </td>
-                                                            <td> WD-12348 </td>
-                                                        </tr>
+                                                        {users && users.slice(-4).reverse().map((user) => (
+                                                            <tr key={user.id}>
+                                                                <td> {user.id} </td>
+                                                                <td> {user.name} </td>
+                                                                <td> {user.email} </td>
+                                                                <td> {user.created_at} </td>
+                                                            </tr>
+                                                        ))}
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -410,7 +419,7 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            {/* <div class="row">
                                 <div class="col-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
@@ -448,9 +457,9 @@ const Dashboard = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div class="row">
-                                <div class="col-md-7 grid-margin stretch-card">
+                                {/* <div class="col-md-7 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="card-title">Project Status</h4>
@@ -481,7 +490,7 @@ const Dashboard = () => {
                                                             <td> Jul 01, 2015 </td>
                                                             <td>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar bg-gradient-danger" role="progressbar"  style={{ width: "75%" }}  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar bg-gradient-danger" role="progressbar" style={{ width: "75%" }} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -491,7 +500,7 @@ const Dashboard = () => {
                                                             <td> Apr 12, 2015 </td>
                                                             <td>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar bg-gradient-warning" role="progressbar"  style={{ width: "90%" }} aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar bg-gradient-warning" role="progressbar" style={{ width: "90%" }} aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -501,7 +510,7 @@ const Dashboard = () => {
                                                             <td> May 15, 2015 </td>
                                                             <td>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar bg-gradient-primary" role="progressbar"  style={{ width: "50%" }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar bg-gradient-primary" role="progressbar" style={{ width: "50%" }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -511,7 +520,7 @@ const Dashboard = () => {
                                                             <td> May 03, 2015 </td>
                                                             <td>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar bg-gradient-danger" role="progressbar"  style={{ width: "35%" }} aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar bg-gradient-danger" role="progressbar" style={{ width: "35%" }} aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -521,7 +530,7 @@ const Dashboard = () => {
                                                             <td> Jun 05, 2015 </td>
                                                             <td>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar bg-gradient-info" role="progressbar"  style={{ width: "65%" }} aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar bg-gradient-info" role="progressbar" style={{ width: "65%" }} aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -530,13 +539,13 @@ const Dashboard = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-5 grid-margin stretch-card">
+                                </div> */}
+                                <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title text-white">Todo</h4>
+                                            <h4 class="card-title">Todo</h4>
                                             <div class="add-items d-flex">
-                                                <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?" />
+                                                <input type="text" class="form-control form-control-lg todo-list-input" placeholder="What do you need to do today?" />
                                                 <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="add-task">Add</button>
                                             </div>
                                             <div class="list-wrapper">
@@ -544,45 +553,45 @@ const Dashboard = () => {
                                                     <li>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="checkbox" type="checkbox" /> Meeting with Alisa </label>
+                                                                <input class="checkbox" type="checkbox" /> Check Comments </label>
                                                         </div>
                                                         <i class="remove mdi mdi-close-circle-outline"></i>
                                                     </li>
                                                     <li class="completed">
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="checkbox" type="checkbox" checked /> Call John </label>
+                                                                <input class="checkbox" type="checkbox" checked /> Check New Users </label>
                                                         </div>
                                                         <i class="remove mdi mdi-close-circle-outline"></i>
                                                     </li>
                                                     <li>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="checkbox" type="checkbox" /> Create invoice </label>
+                                                                <input class="checkbox" type="checkbox" /> Add New Admin </label>
                                                         </div>
                                                         <i class="remove mdi mdi-close-circle-outline"></i>
                                                     </li>
                                                     <li>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="checkbox" type="checkbox" /> Print Statements </label>
+                                                                <input class="checkbox" type="checkbox" /> Add Advertisments </label>
                                                         </div>
                                                         <i class="remove mdi mdi-close-circle-outline"></i>
                                                     </li>
                                                     <li class="completed">
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="checkbox" type="checkbox" checked /> Prepare for presentation </label>
+                                                                <input class="checkbox" type="checkbox" checked /> Check New Posts </label>
                                                         </div>
                                                         <i class="remove mdi mdi-close-circle-outline"></i>
                                                     </li>
-                                                    <li>
+                                                    {/* <li>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
                                                                 <input class="checkbox" type="checkbox" /> Pick up kids from school </label>
                                                         </div>
                                                         <i class="remove mdi mdi-close-circle-outline"></i>
-                                                    </li>
+                                                    </li> */}
                                                 </ul>
                                             </div>
                                         </div>

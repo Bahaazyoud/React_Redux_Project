@@ -57,17 +57,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['image'=>'mimes:jpg,png|image' ]);
+        $request->validate(['PostImage'=>'mimes:jpg,png|image' ]);
         $post= new Post();
         $post->content=$request->content;
-        $post->image=$request->image;
+        $post->PostImage=$request->PostImage;
         $post->user_id=$request->user_id;
-        if($request->hasfile('image')){
-            $file=$request->file('image');
+        if($request->hasfile('PostImage')){
+            $file=$request->file('PostImage');
             $ex=$file->getClientOriginalExtension();
             $filename=time().'.'.$ex;
             $file->move('uploads/',$filename);
-            $post->image=$filename;
+            $post->PostImage=$filename;
         }
         $post->save();
          return redirect("http://localhost:3000/");

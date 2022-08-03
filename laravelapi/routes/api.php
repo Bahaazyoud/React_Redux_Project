@@ -35,6 +35,7 @@ Route::get('users/{id}',[UserController::class , 'getInfo']);
 // http://127.0.0.1:8000/api/users/1
 Route::post('update/{id}',[UserController::class , 'update']);
 Route::get('getuser/{id}',[UserController::class , 'getUser']);
+Route::get('user/img/{id}',[UserController::class, 'useImage']);
 
 
 

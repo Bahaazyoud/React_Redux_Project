@@ -32,14 +32,23 @@ const Comment = (props) => {
   };
   useEffect(() => {
     axios
+      .get(
+        `http://127.0.0.1:8000/api/user/img/${sessionStorage.getItem(
+          "user_id"
+        )}`
+      )
+      .then((res) => {
+        console.log(res.data.id);
+        props.userImage(`http://localhost:8000/img/${res.data.image}`);
+      });
+  });
+  useEffect(() => {
+    axios
       .get(`http://127.0.0.1:8000/api/comment/${props.postId}`)
       .then((res) => {
         setComments(res.data);
       });
   }, [ignored]);
-  //   function handleClick() {
-  //     console.log(ignored);
-  //   }
   let nameClass = "bluee";
   let commentsClass = "comment";
   return (

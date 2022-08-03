@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
@@ -42,9 +42,9 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+       return DB::table('comments')->where('post_id','like',$id)->join('users','comments.user_id',"=",'users.id')->get();
     }
-
+// 
     /**
      * Update the specified resource in storage.
      *

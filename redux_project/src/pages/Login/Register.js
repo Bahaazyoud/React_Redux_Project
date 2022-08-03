@@ -161,7 +161,7 @@ const Register = () => {
                     
                   </div>
                   <div className="d-flex justify-content-center align-items-center mt-3">
-                  <p  >
+                  <p style={{ color:"white" }} >
                       Already have an account? please{" "}
                       <a className="link" href="/login" style={{ color:"white" }}> login here </a>
                     </p>

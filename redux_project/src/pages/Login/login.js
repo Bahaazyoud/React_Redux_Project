@@ -129,7 +129,7 @@ const Login = () => {
 
                   </div>
                   <div className="d-flex justify-content-center align-items-center mt-5">
-                    <p  >
+                    <p style={{ color:"white" }} >
                       <span>DON’T HAVE AN ACCOUNT? </span>
 
                       <a className="link" href="/register" style={{ color: "white" }}> Create An Account </a>

@@ -57,6 +57,7 @@ Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 //comments routes
 Route::post('comment',[CommentController::class, 'store']);
 Route::get('comment',[CommentController::class, 'index']);
+Route::get('comment/{id}',[CommentController::class, 'show']);
 
 
 // *****************Admin Router ********************

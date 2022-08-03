@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './st.css'
-// const user_id = JSON.parse(localStorage.setItem("id"));
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Register = () => {
     password: "",
     image: "",
   });
-  // const [picture, setPicture] = useState([]);
+
   const handleImage = (e) => {
     setUser({ ...user, image: e.target.files[0] });
   }
@@ -52,32 +52,7 @@ const Register = () => {
   }, [])
   return (
     <>
-      {/* <section className="inner-intro bg-1 bg-overlay-black-70">
-        <div className="container">
-          <div className="row text-center intro-title">
-            <div className="col-md-6 text-md-start d-inline-block">
-              <h1 className="text-white">Register </h1>
-            </div>
-            <div className="col-md-6 text-md-end float-end">
-              <ul className="page-breadcrumb">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-home"></i> Home
-                  </a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
-                <li>
-                  <a href="#">pages</a>{" "}
-                  <i className="fa fa-angle-double-right"></i>
-                </li>
-                <li>
-                  <span>Register</span>{" "}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section> */}
+
 
       <section className="register-form page-section-ptb">
         <div className="container">
@@ -115,12 +90,7 @@ const Register = () => {
                         className="form-control form-control-lg"
                         type="file"
                         name="image"
-                        // onChange={(e) =>
-                        //   setUser((prev) => ({
-                        //     ...prev,
-                        //     image: e.target.files[0],
-                        //   }))
-                        // }
+                    
                         onChange={handleImage}
                         required
                       />
@@ -146,7 +116,7 @@ const Register = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">Email </label>
+                    <label className="form-label">E-mail </label>
                     <input
                       className="form-control form-control-lg"
                       type="text"
@@ -180,10 +150,7 @@ const Register = () => {
                       required
                     />
                   </div>
-                  {/* <a href="#" className="button red">
-                    {" "}
-                    Register an account{" "}
-                  </a> */}
+                 
                   <div className="d-flex justify-content-center align-items-center mt-5">
                     <button
                       className="btn   btn-outline-light "

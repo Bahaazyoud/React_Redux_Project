@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -19,27 +20,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'name' => 'required|string',
-                'email' => 'email|required|unique:users',
-                'password' => 'required|min:8',
-                'phone' => 'required|min:10|max:10',
-                'image' => 'max:5048|required',
-            ]
-        );
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()->all()]);
-        }
 
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        // $user->image = $request->image;
-        if($request->hasFile('image')){
+
+            if($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/img');
@@ -60,19 +47,30 @@ class UserController extends Controller
                 'email' => 'email|required|unique:users',
                 'password' => 'required|min:8',
                 'phone' => 'required|min:10|max:10',
-                'image' => 'required|max:5048',
+                'image' => 'required|max:5048|mimes:jpeg,jpg,png,jfif',
             ]
 
         );
 
+
+
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
         }
+
         $user = new User();
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $filename);
+            $user->image = $filename;
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->image = $request->image;
+        // $user->image = $request->image;
         $user->password = Hash::make($request->input('password'));
         $user->save();
         return response($user, 201);
@@ -95,11 +93,7 @@ class UserController extends Controller
 
         $user = User::where('email', $request->input('email'))->first();
 
-        // if (!$user || !Hash::check($request->password, $user->password)) {
-        //     return response()->json([
-        //         'errors' => ['Email or Password is incorrect']
-        //     ]);
-        // }
+
         return response($user, 201);
     }
 
@@ -134,7 +128,7 @@ class UserController extends Controller
     }
     public function addUser($request)
     {
-       
+
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,
@@ -143,17 +137,10 @@ class UserController extends Controller
 
         ]);
         return User::create($request->all());
-     
-        // $$user = new User();
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->phone = $request->phone;
-        // $user->image = $request->image;
-        // // $user->password = Hash::make($request->input('password'));
-        // $user->save();
-        // return response($user, 201);
-         
-    }
+
    
+
+    }
+
 }
 

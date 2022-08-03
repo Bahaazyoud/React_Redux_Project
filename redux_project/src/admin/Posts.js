@@ -342,7 +342,7 @@ const Posts = () => {
                                                             <td>{post.id}</td>
                                                             <td> {post.name}</td>
                                                             <td> {post.content}</td>
-                                                            <td><img src={`http://127.0.0.1:8000/uploads/${post.image}`} alt="" /> </td>
+                                                            <td><img src={`http://127.0.0.1:8000/uploads/${post.PostImage}`} alt="" /> </td>
                                                             <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(post.id) }}>Delete</button>
                                                             </td>
                                                         </tr>

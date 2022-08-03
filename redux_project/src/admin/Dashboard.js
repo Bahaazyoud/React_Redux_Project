@@ -26,10 +26,10 @@ const Dashboard = () => {
                     </div>
                 </div> */}
                 {/* <!-- partial:partials/_navbar.html --> */}
-                <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row ">
                     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                        <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-                        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+                        <a class="p-5" href="/dashboard"><img src="images/TheBooksClub-logos_transparent (3).png" alt="logo" /></a>
+                        {/* <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a> */}
                     </div>
                     <div class="navbar-menu-wrapper d-flex align-items-stretch">
                         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -70,11 +70,11 @@ const Dashboard = () => {
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                {/* <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="mdi mdi-email-outline"></i>
                                     <span class="count-symbol bg-warning"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                                </a> */}
+                                {/* <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                                     <h6 class="p-3 mb-0">Messages</h6>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item preview-item">
@@ -108,9 +108,9 @@ const Dashboard = () => {
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-                                </div>
+                                </div> */}
                             </li>
-                            <li class="nav-item dropdown">
+                            {/* <li class="nav-item dropdown">
                                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                                     <i class="mdi mdi-bell-outline"></i>
                                     <span class="count-symbol bg-danger"></span>
@@ -156,7 +156,7 @@ const Dashboard = () => {
                                     <div class="dropdown-divider"></div>
                                     <h6 class="p-3 mb-0 text-center">See all notifications</h6>
                                 </div>
-                            </li>
+                            </li> */}
                             <li class="nav-item nav-logout d-none d-lg-block">
                                 <a class="nav-link" href="#">
                                     <i class="mdi mdi-power"></i>

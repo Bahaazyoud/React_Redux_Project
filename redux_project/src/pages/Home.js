@@ -377,7 +377,7 @@ export const Home = () => {
                   <i className="ti-home" />
                 </a>
               </li> */}
-              <li>
+              {/* <li>
                 <a href="#" title="Notification" data-ripple>
                   <i className="ti-bell" />
                   <span>20</span>
@@ -445,8 +445,8 @@ export const Home = () => {
                     view more
                   </a>
                 </div>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="#" title="Messages" data-ripple>
                   <i className="ti-comment" />
                   <span>12</span>
@@ -514,10 +514,10 @@ export const Home = () => {
                     view more
                   </a>
                 </div>
-              </li>
+              </li> */}
                
             </ul>
-            <div className="user-img">
+            {/* <div className="user-img">
               <img src="images/resources/admin.jpg" alt="" />
               <span className="status f-online" />
               <div className="user-setting">
@@ -553,7 +553,7 @@ export const Home = () => {
                   log out
                 </a>
               </div>
-            </div>
+            </div> */}
             <span className="ti-menu main-menu" data-ripple />
           </div>
         </div>

@@ -338,8 +338,8 @@ export const Home = () => {
                 </a>
                 
               </li>
-              <li>
-                <a href="/profile"  >
+              <li className="profile">
+                <a  href="/profile"  >
                   Profile
                 </a>
                 <ul>
@@ -359,7 +359,7 @@ export const Home = () => {
                
             </ul>
             <ul className="setting-area">
-              <li>
+              {/* <li>
                 <a href="#" title="Home" data-ripple>
                   <i className="ti-search" />
                 </a>
@@ -371,12 +371,12 @@ export const Home = () => {
                     </button>
                   </form>
                 </div>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="newsfeed.html" title="Home" data-ripple>
                   <i className="ti-home" />
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="#" title="Notification" data-ripple>
                   <i className="ti-bell" />
@@ -571,53 +571,53 @@ export const Home = () => {
                           <ul className="naves">
                             <li>
                               <i className="ti-clipboard" />
-                              <a href="newsfeed.html" title>
+                              <a href="/" title>
                                 News feed
                               </a>
                             </li>
-                            <li>
+                            {/* <li>
                               <i className="ti-mouse-alt" />
                               <a href="inbox.html" title>
                                 Inbox
                               </a>
-                            </li>
+                            </li> */}
                             <li>
                               <i className="ti-files" />
-                              <a href="fav-page.html" title>
-                                My pages
+                              <a href="/profile" title>
+                                Profile
                               </a>
                             </li>
-                            <li>
+                            {/* <li>
                               <i className="ti-user" />
                               <a href="timeline-friends.html" title>
                                 friends
                               </a>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                               <i className="ti-image" />
                               <a href="timeline-photos.html" title>
                                 images
                               </a>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                               <i className="ti-video-camera" />
                               <a href="timeline-videos.html" title>
                                 videos
                               </a>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                               <i className="ti-comments-smiley" />
                               <a href="messages.html" title>
                                 Messages
                               </a>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                               <i className="ti-bell" />
                               <a href="notifications.html" title>
                                 Notifications
                               </a>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                               <i className="ti-share" />
                               <a href="people-nearby.html" title>
                                 People Nearby
@@ -628,7 +628,7 @@ export const Home = () => {
                               <a href="insights.html" title>
                                 insights
                               </a>
-                            </li>
+                            </li> */}
                             <li>
                               <i className="ti-power-off" />
                               <a href="landing.html" title>
@@ -876,7 +876,7 @@ export const Home = () => {
                                     
                                     <div className="we-video-info">
                                       <ul>
-                                        <li>
+                                        {/* <li>
                                           <span
                                             className="views"
                                             data-toggle="tooltip"
@@ -885,7 +885,7 @@ export const Home = () => {
                                             <i className="fa fa-eye" />
                                             <ins>1.2k</ins>
                                           </span>
-                                        </li>
+                                        </li> */}
                                         <li>
                                           <span
                                             className="comment"
@@ -893,7 +893,7 @@ export const Home = () => {
                                             title="Comments"
                                           >
                                             <i className="fa fa-comments-o" />
-                                            <ins>52</ins>
+                                            {/* <ins>52</ins> */}
                                           </span>
                                         </li>
                                         {liked ? (

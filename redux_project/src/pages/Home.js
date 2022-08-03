@@ -845,7 +845,7 @@ export const Home = () => {
                         </div>
                       </div>
                       {/* add post new box */}
-                      {res?.map((post) => {
+                      {res?.slice(0).reverse().map((post) => {
                         return (
                           <div className="loadMore">
                             <div className="central-meta item" key={post.id}>

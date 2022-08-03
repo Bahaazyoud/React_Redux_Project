@@ -14106,7 +14106,7 @@ dl {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 70px);
+   height: auto; 
   background: #ffffff;
   font-family: "ubuntu-regular", sans-serif;
   padding: 0;

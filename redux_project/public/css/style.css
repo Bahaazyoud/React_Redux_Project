@@ -1136,7 +1136,7 @@ header.sticky {
   display: table;
   float: none;
   margin: 0 auto;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   width: 80%;
 }
 
@@ -10007,7 +10007,6 @@ aside.sidebar.full-style {
     padding-right: 10px;
   }
   .top-area > ul.main-menu > li::after {
-    right: 0px ;
+    right: 0px;
   }
-
 }

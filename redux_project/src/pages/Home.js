@@ -164,7 +164,7 @@ export const Home = () => {
                                     <input
                                       type="file"
                                       id="image"
-                                      name="image"
+                                      name="PostImage"
                                       style={{
                                         display: "none",
                                         visibility: "none",
@@ -203,6 +203,7 @@ export const Home = () => {
                         ?.slice(0)
                         .reverse()
                         .map((post) => {
+                          console.log(post);
                           return (
                             <div className="loadMore">
                               <div className="central-meta item" key={post.id}>
@@ -231,7 +232,7 @@ export const Home = () => {
                                         <p>{post.content}</p>
                                       </div>
                                       <img
-                                        src={`http://localhost:8000/uploads/${post.image}`}
+                                        src={`http://localhost:8000/uploads/${post.PostImage}`}
                                         alt=""
                                         style={
                                           post.image

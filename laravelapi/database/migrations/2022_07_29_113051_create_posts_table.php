@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('content');
             $table->unsignedBigInteger('likes')->nullable();
-            $table->string('image')->nullable();
+            $table->string('PostImage')->nullable();
             $table->unsignedInteger('user_id');
            $table->timestamps();
          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

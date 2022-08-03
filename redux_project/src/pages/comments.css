@@ -18,3 +18,8 @@
 .delete:hover {
   color: rgb(187, 0, 0);
 }
+@media (max-width: 410px) {
+  .delete {
+    left: 80px;
+  }
+}

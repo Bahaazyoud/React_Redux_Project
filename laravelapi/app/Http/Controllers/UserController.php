@@ -141,6 +141,10 @@ class UserController extends Controller
    
 
     }
+      public function useImage($id)
+    {
+        return User::find($id);
+    }
 
 }
 

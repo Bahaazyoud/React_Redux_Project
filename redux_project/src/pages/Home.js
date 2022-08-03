@@ -10,6 +10,10 @@ export const Home = () => {
   );
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
+  const logoutHandler = () => {
+    sessionStorage.clear();
+    window.location.reload(false);
+  };
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/join")
@@ -118,13 +122,17 @@ export const Home = () => {
                                 Profile
                               </a>
                             </li>
-
-                            <li>
-                              <i className="ti-power-off" />
-                              <a href="landing.html" title>
-                                Logout
-                              </a>
-                            </li>
+                            {sessionStorage.getItem("user_id") && (
+                              <li>
+                                <i className="ti-power-off" />
+                                <a
+                                  style={{ cursor: "pointer" }}
+                                  onClick={logoutHandler}
+                                >
+                                  Logout
+                                </a>
+                              </li>
+                            )}
                           </ul>
                         </div>
                       </aside>
@@ -136,65 +144,82 @@ export const Home = () => {
                             <img src={`${userImage}`} alt="" />
                           </figure>
                           <div className="newpst-input">
-                            <form
-                              method="POST"
-                              action="http://127.0.0.1:8000/api/post"
-                              encType="multipart/form-data"
-                            >
-                              <input
-                                type="hidden"
-                                name="user_id"
-                                value={sessionStorage.getItem("user_id")}
-                              />
-                              <textarea
-                                rows={2}
-                                placeholder="write something"
-                                id="content"
-                                name="content"
-                              />
-                              <div class="attachments">
-                                <ul>
-                                  <li
-                                    style={{
-                                      display: "flext",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                    }}
-                                  >
-                                    <input
-                                      type="file"
-                                      id="image"
-                                      name="PostImage"
+                            {sessionStorage.getItem("user_id") ? (
+                              <form
+                                method="POST"
+                                action="http://127.0.0.1:8000/api/post"
+                                encType="multipart/form-data"
+                              >
+                                <input
+                                  type="hidden"
+                                  name="user_id"
+                                  value={sessionStorage.getItem("user_id")}
+                                />
+                                <textarea
+                                  rows={2}
+                                  placeholder="write something"
+                                  id="content"
+                                  name="content"
+                                />
+                                <div class="attachments">
+                                  <ul>
+                                    <li
                                       style={{
-                                        display: "none",
-                                        visibility: "none",
+                                        display: "flext",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                       }}
-                                    />
-                                    <label
-                                      class="fileContainer"
-                                      htmlFor="image"
                                     >
-                                      <i
-                                        class="fa fa-image"
+                                      <input
+                                        type="file"
+                                        id="image"
+                                        name="PostImage"
                                         style={{
-                                          fontSize: "25px",
-                                          color: "black",
-                                          cursor: "pointer",
+                                          display: "none",
+                                          visibility: "none",
                                         }}
-                                      ></i>
-                                    </label>
-                                  </li>
-                                  <li>
-                                    <button
-                                      style={{ backgroundColor: "#5a4ae3" }}
-                                      type="submit"
-                                    >
-                                      Post
-                                    </button>
-                                  </li>
-                                </ul>
-                              </div>
-                            </form>
+                                      />
+                                      <label
+                                        class="fileContainer"
+                                        htmlFor="image"
+                                      >
+                                        <i
+                                          class="fa fa-image"
+                                          style={{
+                                            fontSize: "25px",
+                                            color: "black",
+                                            cursor: "pointer",
+                                          }}
+                                        ></i>
+                                      </label>
+                                    </li>
+                                    <li>
+                                      <button
+                                        style={{ backgroundColor: "#5a4ae3" }}
+                                        type="submit"
+                                      >
+                                        Post
+                                      </button>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </form>
+                            ) : (
+                              <p style={{ fontSize: "18px" }}>
+                                please login
+                                <a
+                                  href="/login"
+                                  style={{
+                                    color: "#5a4ae3",
+                                    textDecoration: "underline",
+                                  }}
+                                >
+                                  {" "}
+                                  here{" "}
+                                </a>
+                                To post and comment
+                              </p>
+                            )}
                           </div>
                         </div>
                       </div>

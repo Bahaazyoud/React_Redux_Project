@@ -31,16 +31,18 @@ const Comment = (props) => {
     }
   };
   useEffect(() => {
-    axios
-      .get(
-        `http://127.0.0.1:8000/api/user/img/${sessionStorage.getItem(
-          "user_id"
-        )}`
-      )
-      .then((res) => {
-        console.log(res.data.id);
-        props.userImage(`http://localhost:8000/img/${res.data.image}`);
-      });
+    if (sessionStorage.getItem("user_id")) {
+      axios
+        .get(
+          `http://127.0.0.1:8000/api/user/img/${sessionStorage.getItem(
+            "user_id"
+          )}`
+        )
+        .then((res) => {
+          console.log(res.data.id);
+          props.userImage(`http://localhost:8000/img/${res.data.image}`);
+        });
+    }
   });
   useEffect(() => {
     axios
@@ -112,33 +114,50 @@ const Comment = (props) => {
             );
           })}
       </ul>
-      <form onSubmit={commentHandler} method="post">
-        <textarea
-          name="comment"
-          placeholder="Post your comment"
-          value={comment.text}
-          onChange={commentChangeHandler}
-        />
-        <input
-          type="hidden"
-          value={sessionStorage.getItem("user_id")}
-          name="user_id"
-        />
-        <input type="hidden" value={props.postId} name="post_id" />
-        <button
-          style={{
-            background: "white",
-            border: " rgb(8 141 205 / 62%) solid 2px",
-            borderRadius: " 0px 10px 10px",
-            color: "#088dcd",
-            height: "100%",
-            textShadow: "#00000030 2px 0px 13px",
-          }}
-          type="submit"
-        >
-          Comment
-        </button>
-      </form>
+      {sessionStorage.getItem("user_id") ? (
+        <form onSubmit={commentHandler} method="post">
+          <textarea
+            name="comment"
+            placeholder="Post your comment"
+            value={comment.text}
+            onChange={commentChangeHandler}
+          />
+          <input
+            type="hidden"
+            value={sessionStorage.getItem("user_id")}
+            name="user_id"
+          />
+          <input type="hidden" value={props.postId} name="post_id" />
+          <button
+            style={{
+              background: "white",
+              border: " rgb(8 141 205 / 62%) solid 2px",
+              borderRadius: " 0px 10px 10px",
+              color: "#088dcd",
+              height: "100%",
+              textShadow: "#00000030 2px 0px 13px",
+            }}
+            type="submit"
+          >
+            Comment
+          </button>
+        </form>
+      ) : (
+        <p style={{ fontSize: "18px" }}>
+          please login
+          <a
+            href="/login"
+            style={{
+              color: "#5a4ae3",
+              textDecoration: "underline",
+            }}
+          >
+            {" "}
+            here{" "}
+          </a>
+          To post and comment
+        </p>
+      )}
     </>
   );
 };

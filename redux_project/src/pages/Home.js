@@ -54,58 +54,11 @@ export const Home = () => {
       <link rel="stylesheet" href="css/responsive.css" />
       {/*<div class="se-pre-con"></div>*/}
       <div className="theme-layout">
-        <div className="responsive-header">
-          <div className="mh-head first Sticky">
-            <span className="mh-btns-left">
-              <a className href="#menu">
-                <i className="fa fa-align-justify" />
-              </a>
-            </span>
-            <span className="mh-text">
-              <a href="newsfeed.html" title>
-                <img src=" " alt="" />
-              </a>
-            </span>
-            <span className="mh-btns-right">
-              <a className="fa fa-sliders" href="#shoppingbag" />
-            </span>
-          </div>
-          <div className="mh-head second">
-            <form className="mh-form">
-              <input placeholder="search" />
-              <a href="#/" className="fa fa-search" />
-            </form>
-          </div>
-          <nav id="menu" className="res-menu">
-            <ul>
-              <li>
-                <a href="/landing">Home</a>
-              </li>
-              <li>
-                <a href="/">Time Line</a>
-              </li>
-              <li>
-                <a href="/profile">Profile </a>
-              </li>
-
-              <li>
-                <a href="about.html" title>
-                  about
-                </a>
-              </li>
-
-              <li>
-                <a href="contact.html" title>
-                  contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
         <div className="topbar stick">
           <div className="logo ">
             <a title href="newsfeed.html">
               <img
+                className="logo_image"
                 src="images/TheBooksClub-logos_transparent (3).png"
                 style={{ height: "50px" }}
                 alt=""
@@ -136,8 +89,6 @@ export const Home = () => {
                 </ul>
               </li>
             </ul>
-            <ul className="setting-area"></ul>
-            <span className="ti-menu main-menu" data-ripple />
           </div>
         </div>
         {/* topbar */}

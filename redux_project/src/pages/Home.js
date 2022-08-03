@@ -836,7 +836,7 @@ export const Home = () => {
                                     </label>
                                   </li>
                                   <li>
-                                    <button type="submit">Post</button>
+                                    <button className="btn btn-gradient-primary w-100 " type="submit">Post</button>
                                   </li>
                                 </ul>
                               </div>
@@ -872,6 +872,8 @@ export const Home = () => {
                                     <img
                                       src={`http://localhost:8000/uploads/${post.image}`}
                                       alt=""
+        
+
                                     />
                                     
                                     <div className="we-video-info">

@@ -397,7 +397,7 @@ const Landing = () => {
                                 <div class="widget">
                                     <div class="foot-logo">
                                         <div class="logo">
-                                            <a href="index-2.html" title=""><img src="images/TheBooksClub-logos_black.png" alt="" /></a>
+                                            <a href="index-2.html" title=""><img src="images/TheBooksClub-logos_transparent (3).png" alt="" /></a>
                                         </div>
                                         <p>
                                             The trio took this simple idea and built it into the world’s leading carpooling platform.

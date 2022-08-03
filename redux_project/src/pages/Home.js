@@ -211,7 +211,7 @@ export const Home = () => {
                                   <div className="friend-info">
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar10.jpg"
+                                        src={`http://localhost:8000/img/${post.image}`}
                                         alt=""
                                       />
                                     </figure>

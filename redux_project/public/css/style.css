@@ -462,6 +462,7 @@ iframe {
     border-radius: 5px;
     color: #fff;
     display: inline-block;
+    background-color:  #5a4ae3;
     font-size: 30px;
     line-height: 40px;
     text-align: center;
@@ -1183,6 +1184,7 @@ header.sticky {
 }
 
 .sidebar .widget-title::before {
+    background-color:     #5a4ae3;
     bottom: 0;
     content: "";
     height: 2px;
@@ -2072,7 +2074,7 @@ footer {
 }
 
 footer::before {
-    background: rgba(0, 0, 0, 0) linear-gradient(to right, #ffffff 0%, #2fa7cd 50%, #ffffff 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, #ffffff 0%,   #5a4ae3 50%, #ffffff 100%) repeat scroll 0 0;
     content: "";
     height: 5px;
     position: absolute;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 
 import { useNavigate } from 'react-router-dom';
@@ -6,10 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteComment, deletePost, loadComments, loadPosts } from './redux/actions';
 
+import axios from "axios";
+
+
 
 
 const Comments = () => {
     let dispatch = useDispatch();
+
+    const [res, setRes] = useState();
+
 
     const { comments } = useSelector(state => state.comments);
 
@@ -30,10 +36,19 @@ const Comments = () => {
             
 
         }
-
-
-
     };
+
+
+    useEffect(() => {
+        axios
+            .get("http://127.0.0.1:8000/api/joincomment")
+            .then((res) => {
+                setRes(res.data);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
+
     return (
         <div>
 
@@ -314,7 +329,7 @@ const Comments = () => {
                                                         
                                                         <tr key={comment.id}>
                                                             <td>{comment.id}</td>
-                                                            <td> {comment.user_id}</td>
+                                                            <td> {comment.name}</td>
                                                             <td> {comment.text}</td>
                                                             <td><button type="button" class="btn btn-gradient-danger btn-fw" onClick={() => { handleDelete(comment.id) }}>Delete</button>
                                                             </td>

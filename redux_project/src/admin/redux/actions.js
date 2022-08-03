@@ -68,7 +68,7 @@ export const loadUsers = () => {
 export const loadPosts= () => {
 
     return function (dispatch) {
-        axios.get('http://127.0.0.1:8000/api/Posts').then((resp) => {
+        axios.get('http://127.0.0.1:8000/api/join').then((resp) => {
             console.log('fetched');
             dispatch(getPosts(resp.data));
         }).catch((error) => console.log(error));
@@ -79,7 +79,7 @@ export const loadPosts= () => {
 export const loadComments= () => {
 
     return function (dispatch) {
-        axios.get('http://127.0.0.1:8000/api/Comments').then((resp) => {
+        axios.get('http://127.0.0.1:8000/api/joincomment').then((resp) => {
             console.log('fetched');
             dispatch(getComments(resp.data));
         }).catch((error) => console.log(error));

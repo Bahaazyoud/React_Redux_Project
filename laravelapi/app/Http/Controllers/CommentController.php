@@ -64,6 +64,15 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    public function join(Request $request)
+    {
+        $postInfo= DB::table('users')
+        ->join('comments', 'users.id', '=', 'comments.user_id')->get();
+        return $postInfo;
+    }
+
     public function Comments()
     {
         $comments = Comment::all();

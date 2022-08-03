@@ -315,11 +315,11 @@ export const Home = () => {
         </div> 
         {/* responsive header */}
         <div className="topbar stick">
-          <div className="logo p-2">
+          <div className="logo ">
             <a title href="newsfeed.html">
               <img
-                src="images/TheBooksClub-logos_black.png"
-                style={{ opacity: "0.6" }}
+                src="images/TheBooksClub-logos_transparent (3).png"
+                style={{height:"50px"}}
                 alt=""
               />
             </a>
@@ -582,7 +582,7 @@ export const Home = () => {
                               </a>
                             </li> */}
                             <li>
-                              <i className="ti-files" />
+                              <i className="ti-face-smile" />
                               <a href="/profile" title>
                                 Profile
                               </a>
@@ -836,7 +836,7 @@ export const Home = () => {
                                     </label>
                                   </li>
                                   <li>
-                                    <button type="submit">Post</button>
+                                    <button style={{ backgroundColor:"#5a4ae3" }} type="submit">Post</button>
                                   </li>
                                 </ul>
                               </div>
@@ -859,11 +859,11 @@ export const Home = () => {
                                   </figure>
                                   <div className="friend-name">
                                     <ins>
-                                      <a href="time-line.html" title>
+                                      <a style={{color:"#5a4ae3" }} href="time-line.html" title>
                                         {post.name}
                                       </a>
                                     </ins>
-                                    <span>published: june,2 2018 19:PM</span>
+                                    <span>{post.created_at}</span>
                                   </div>
                                   <div className="post-meta">
                                   <div className="description">
@@ -872,6 +872,8 @@ export const Home = () => {
                                     <img
                                       src={`http://localhost:8000/uploads/${post.image}`}
                                       alt=""
+        
+
                                     />
                                     
                                     <div className="we-video-info">
@@ -993,7 +995,7 @@ export const Home = () => {
                                     
                                   </div>
                                 </div>
-                                <div className="coment-area">
+                                <div className="coment-area ">
                                   <ul className="we-comet">
                                     <Comments postId={post.id} />
                                   </ul>
@@ -1599,7 +1601,7 @@ export const Home = () => {
                   <div className="foot-logo">
                     <div className="logo">
                       <a href="/landing" className="ml-3" title>
-                        <img src="images/TheBooksClub-logos_black.png" alt="" />
+                        <img src="images/TheBooksClub-logos_transparent (3).png" alt="" />
                       </a>
                     </div>
                      
@@ -1725,53 +1727,11 @@ export const Home = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-2 col-md-4">
-                <div className="widget">
-                  <div className="widget-title">
-                    <h4>download apps</h4>
-                  </div>
-                  <ul className="colla-apps">
-                    <li>
-                      <a href="https://play.google.com/store?hl=en" title>
-                        <i className="fa fa-android" />
-                        android
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.apple.com/lae/ios/app-store/" title>
-                        <i className="ti-apple" />
-                        iPhone
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.microsoft.com/store/apps" title>
-                        <i className="fa fa-windows" />
-                        Windows
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+                           </div>
           </div>
         </footer>
         {/* footer */}
-        <div className="bottombar">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <span className="copyright">
-                  <a target="_blank" href="https://www.templateshub.net">
-                    Templates Hub
-                  </a>
-                </span>
-                <i>
-                  <img src="images/credit-cards.png" alt="" />
-                </i>
-              </div>
-            </div>
-          </div>
-        </div>
+      
       </div>
       <div className="side-panel">
         <h4 className="panel-title">General Setting</h4>

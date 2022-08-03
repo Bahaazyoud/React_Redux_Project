@@ -260,7 +260,7 @@ export const Home = () => {
                                         src={`http://localhost:8000/uploads/${post.PostImage}`}
                                         alt=""
                                         style={
-                                          post.image
+                                          post.PostImage
                                             ? { height: "30rem", width: "100%" }
                                             : {}
                                         }

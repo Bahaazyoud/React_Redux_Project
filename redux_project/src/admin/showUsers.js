@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import './style.css'
 
 import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, loadUsers } from './redux/actions';
+import axios from "axios";
+
 
 
 
@@ -12,6 +14,17 @@ const ShowUsers = () => {
     let dispatch = useDispatch();
 
     const { users } = useSelector(state => state.data);
+
+    const [res, setRes] = useState();
+    const [name, setName] = useState();
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/join').then(res => {
+            console.log(res.data);
+            setRes(res.data)
+            setName(res.data[0].name);
+        }).catch(error => console.log(error));
+    }, [])
+    let userid = sessionStorage.getItem("user_id")
 
     let nav = useNavigate();
 
@@ -198,8 +211,8 @@ const ShowUsers = () => {
                                         {/* <!--change to offline or busy as needed--> */}
                                     </div>
                                     <div class="nav-profile-text d-flex flex-column">
-                                        <span class="font-weight-bold mb-2">Admin Name</span>
-                                        <span class="text-secondary text-small">Admin Role</span>
+                                        <span class="font-weight-bold mb-2">{name}</span>
+                                        <span class="text-secondary text-small">Admin</span>
                                     </div>
                                     <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                                 </a>

@@ -872,7 +872,7 @@ export const Home = () => {
                                     <img
                                       src={`http://localhost:8000/uploads/${post.image}`}
                                       alt=""
-        
+                                      style={post.image ?{height:'20rem',width:'100%'}: {}}
 
                                     />
                                     

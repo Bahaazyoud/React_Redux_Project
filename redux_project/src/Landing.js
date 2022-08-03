@@ -451,16 +451,7 @@ const Landing = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-md-4">
-                                <div class="widget">
-                                    <div class="widget-title"><h4>download apps</h4></div>
-                                    <ul class="colla-apps">
-                                        <li><a href="https://play.google.com/store?hl=en" title=""><i class="fa fa-android"></i>android</a></li>
-                                        <li><a href="https://www.apple.com/lae/ios/app-store/" title=""><i class="ti-apple"></i>iPhone</a></li>
-                                        <li><a href="https://www.microsoft.com/store/apps" title=""><i class="fa fa-windows"></i>Windows</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </footer>{/*<!-- footer --> */}

@@ -11121,7 +11121,7 @@ body {
   line-height: normal;
   -webkit-font-smoothing: antialiased; }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
+h1, .h1, h2, .h2, h3, .h3, h5, .h5, h6, .h6,
 .h1,
 .h2,
 .h3,
@@ -11130,6 +11130,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
 .h6 {
   font-family: "ubuntu-medium", sans-serif;
 color: white; }
+
+h4, .h4{
+  font-family: "ubuntu-medium", sans-serif;
+color: grey; }
 
 p {
   font-size: 0.875rem; }

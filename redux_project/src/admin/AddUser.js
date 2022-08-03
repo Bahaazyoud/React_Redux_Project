@@ -61,7 +61,7 @@ const AddUser = () => {
                         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                             <span class="mdi mdi-menu"></span>
                         </button>
-                        <div class="search-field d-none d-md-block">
+                        {/* <div class="search-field d-none d-md-block">
                             <form class="d-flex align-items-center h-100" action="#">
                                 <div class="input-group">
                                     <div class="input-group-prepend bg-transparent">
@@ -70,7 +70,7 @@ const AddUser = () => {
                                     <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects" />
                                 </div>
                             </form>
-                        </div>
+                        </div> */}
                         <ul class="navbar-nav navbar-nav-right">
                             {/* <li class="nav-item nav-profile dropdown">
                                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">

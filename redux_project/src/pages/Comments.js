@@ -79,6 +79,7 @@ const Comment = (props) => {
           placeholder="Post your comment"
           value={comment.text}
           onChange={commentChangeHandler}
+          className="mt-4"
         />
         <input
           type="hidden"
@@ -94,8 +95,10 @@ const Comment = (props) => {
             color: "#088dcd",
             height: "100%",
             textShadow: "#00000030 2px 0px 13px",
+            float:"right"
           }}
           type="submit"
+          className="mt-2"
         >
           Comment
         </button>

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
+
 import './st.css'
 
 
@@ -37,7 +39,7 @@ const Register = () => {
         if (res.data.errors) {
           setError(res.data.errors);
         } else {
-          alert("Successfully Regiseration");
+          swal("Done","User Successfully Regiserated","success");
           localStorage.setItem("user_id", user.id);
           navigate("/login");
         }

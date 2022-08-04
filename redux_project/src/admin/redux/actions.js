@@ -106,7 +106,7 @@ export const deletePost= (id) => {
         axios.delete(`http://127.0.0.1:8000/api/deletePost/${id}`).then((resp) => {
             // console.log('fetched');
             dispatch(postDeleted());
-            // dispatch(loadUsers());
+            // dispatch(loadPosts());
             
 
         }).catch((error) => console.log(error));
@@ -119,8 +119,9 @@ export const deleteComment= (id) => {
     return function (dispatch) {
         axios.delete(`http://127.0.0.1:8000/api/deleteComment/${id}`).then((resp) => {
             // console.log('fetched');
+            
             dispatch(commentDeleted());
-            // dispatch(loadUsers());
+            dispatch(loadUsers());
             
 
         }).catch((error) => console.log(error));

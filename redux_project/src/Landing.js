@@ -196,11 +196,13 @@ const Landing = () => {
                 {/* <!-- responsive header --> */}
 
                 <div class="topbar transparent">
-                    <div class="logo">
-                        <a title="" href="newsfeed.html"><img src="images/TheBooksClub-logos_transparent (2).png" height="100" alt="" /></a>
+                    <div class="logo mt-5">
+                        <a href="/"><img src="images/TheBooksClub-logos_transparent (2).png" alt="" /></a>
+             
+
                     </div>
-                  
-                    
+                   
+
                 </div>
                 {/* <!-- topbar transparent header --> */}
 
@@ -215,16 +217,16 @@ const Landing = () => {
                                         <h3 className='font-weight-normal' style={{ color: "white" }}> For Every Books Lover Read, learn, grow.</h3>
                                         {/* <h5 className='font-weight-normal' style={{ color: "white" }}> </h5> */}
                                         <div className="d-flex justify-content-center align-items-center mt-5">
-                                            <a className="btn btn-outline-light cbtn" href="/">
+                                            <a className="btn btn-outline-light cbtn m-1" href="/">
                                                 Visit Our Community
                                             </a>
-                                            <a className="btn btn-outline-light cbtn m-2 " href="/register">
+                                            <a className="btn btn-outline-light cbtn m-1  " href="/register">
                                                 Join Our Community
                                             </a>
 
 
                                         </div>
-                                         
+
                                         {/* <nav class="breadcrumb">
                                             <a class="breadcrumb-item" href="index-2.html">Home</a>
                                             <span class="breadcrumb-item active">About us</span>
@@ -244,8 +246,8 @@ const Landing = () => {
                                 <div class="col-lg-6">
                                     <div class="about-winku">
                                         <h4>Welcome to The Books Club</h4>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</span>
-                                        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure</p>
+                                        <span>We are an Online Community where Readers and Books lovers can meet,share,and enjoy the company of other books lovers and readers from around the globe.</span>
+                                        <p>Our main goal is to build a community for readers and people who enjoy sharing their reading journeys and meeting other readers, All that while making sure our users and their content safe and unharmed</p>
                                         <div class="fonder">
                                             <h4>ABKRS <i>founder</i></h4>
                                             <i>TBC inc</i>
@@ -279,7 +281,7 @@ const Landing = () => {
                                         <div class="category-box">
                                             <i class="fa fa-comment"></i>
                                             <h2>Online Community</h2>
-                                            <p>Met consectetur adipisicing elit dolore suscipit, inventore aliquid...</p>
+                                            <p>For every reader</p>
                                             {/* <a href="#" class="main-btn" title="">Read More</a> */}
                                         </div>
                                     </div>
@@ -287,7 +289,7 @@ const Landing = () => {
                                         <div class="category-box selected">
                                             <i class="fa fa-server"></i>
                                             <h2>Advertisment Space</h2>
-                                            <p>Met consectetur adipisicing elit dolore suscipit, inventore aliquid...</p>
+                                            <p>feel free to contact us for advertisments</p>
                                             {/* <a href="#" class="main-btn" title="">Read More</a> */}
                                         </div>
                                     </div>
@@ -295,7 +297,7 @@ const Landing = () => {
                                         <div class="category-box">
                                             <i class="fa fa-suitcase"></i>
                                             <h2>Community Addmistration</h2>
-                                            <p>Met consectetur adipisicing elit dolore suscipit, inventore aliquid...</p>
+                                            <p>we keep you safe </p>
                                             {/* <a href="#" class="main-btn" title="">Read More</a> */}
                                         </div>
                                     </div>
@@ -451,7 +453,7 @@ const Landing = () => {
                                     </ul>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </footer>{/*<!-- footer --> */}

@@ -4,77 +4,104 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from './redux/actions';
 import axios from "axios";
+import swal from 'sweetalert';
 
 
 
 const AddUser = () => {
 
-  let nav = useNavigate();
-  let dispatch = useDispatch();
+
 
   const [res, setRes] = useState();
-    const [name1, setName] = useState();
-    useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/join').then(res => {
-            console.log(res.data);
-            setRes(res.data)
-            setName(res.data[0].name);
-        }).catch(error => console.log(error));
-    }, [])
-    let userid = sessionStorage.getItem("user_id")
+  const [name1, setName] = useState();
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/join').then(res => {
+      console.log(res.data);
+      setRes(res.data)
+      setName(res.data[0].name);
+    }).catch(error => console.log(error));
+  }, [])
+  let userid = sessionStorage.getItem("user_id")
 
+  // **********************************************************************************8
 
-  const [state, setState] = useState({
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
     name: "",
-    email: "",
     phone: "",
+    email: "",
+    password: "",
     image: "",
   });
-  const [error, setError] = useState("");
 
-  const { name, email, phone, image } = state;
-
-  const handdleInput = (e) => {
-    let { name, value } = e.target;
-    setState({ ...state, [name]: value });
+  const handleImage = (e) => {
+    setUser({ ...user, image: e.target.files[0] });
   }
-
-
-  const handdleSubmit = (e) => {
+  const [error, setError] = useState([]);
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(!name || !email || !phone || !image){
-      setError('error input')
-    }else{
+    const formData = new FormData();
+    formData.append("name", user.name);
+    formData.append("phone", user.phone);
+    formData.append("email", user.email);
+    formData.append("password", user.password);
+    formData.append("image", user.image);
+    axios({
+      method: "post",
+      url: "http://localhost:8000/api/register",
+      data: formData,
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.data.errors) {
+          setError(res.data.errors);
+        } else {
+          swal("Done","User Successfully Regiserated","success");
+          ;
+          localStorage.setItem("user_id", user.id);
+          navigate("/Users");
+        }
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+      });
+  };
 
-      dispatch(addUser(state));
-      nav('/Users');  
-      setError("");
-
-    }
 
   
 
 
 
 
+  // const [username, setUserame] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [roles, setRoles] = useState(0);
+  // const [phone, setPhone] = useState('');
+  // const [image, setImage] = useState('');
 
 
 
-  }
+
+
+
+
+
+
   return (
     <div>
       <div class="container-scroller">
         {/* <!-- partial:../../partials/_navbar.html --> */}
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row ">
-                    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                        <a class="p-5" href="/dashboard"><img src="images/TheBooksClub-logos_transparent (3).png" alt="logo" /></a>
-                        {/* <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a> */}
-                    </div>
-                    <div class="navbar-menu-wrapper d-flex align-items-stretch">
-                        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                            <span class="mdi mdi-menu"></span>
-                        </button>
-                        {/* <div class="search-field d-none d-md-block">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="p-5" href="/dashboard"><img src="images/TheBooksClub-logos_transparent (3).png" alt="logo" /></a>
+            {/* <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a> */}
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            {/* <div class="search-field d-none d-md-block">
                             <form class="d-flex align-items-center h-100" action="#">
                                 <div class="input-group">
                                     <div class="input-group-prepend bg-transparent">
@@ -84,8 +111,8 @@ const AddUser = () => {
                                 </div>
                             </form>
                         </div> */}
-                        <ul class="navbar-nav navbar-nav-right">
-                            {/* <li class="nav-item nav-profile dropdown">
+            <ul class="navbar-nav navbar-nav-right">
+              {/* <li class="nav-item nav-profile dropdown">
                                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="nav-profile-img">
                                         <img src="assets/images/faces/face1.jpg" alt="image" />
@@ -103,17 +130,17 @@ const AddUser = () => {
                                         <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
                                 </div>
                             </li> */}
-                            <li class="nav-item d-none d-lg-block full-screen-link">
-                                <a class="nav-link">
-                                    <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                {/* <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <li class="nav-item d-none d-lg-block full-screen-link">
+                <a class="nav-link">
+                  <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                {/* <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="mdi mdi-email-outline"></i>
                                     <span class="count-symbol bg-warning"></span>
                                 </a> */}
-                                {/* <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                {/* <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                                     <h6 class="p-3 mb-0">Messages</h6>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item preview-item">
@@ -148,8 +175,8 @@ const AddUser = () => {
                                     <div class="dropdown-divider"></div>
                                     <h6 class="p-3 mb-0 text-center">4 new messages</h6>
                                 </div> */}
-                            </li>
-                            {/* <li class="nav-item dropdown">
+              </li>
+              {/* <li class="nav-item dropdown">
                                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                                     <i class="mdi mdi-bell-outline"></i>
                                     <span class="count-symbol bg-danger"></span>
@@ -196,48 +223,48 @@ const AddUser = () => {
                                     <h6 class="p-3 mb-0 text-center">See all notifications</h6>
                                 </div>
                             </li> */}
-                            <li class="nav-item nav-logout d-none d-lg-block">
-                                <a class="nav-link" href="#">
-                                    <i class="mdi mdi-power"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item nav-settings d-none d-lg-block">
-                                <a class="nav-link" href="#">
-                                    <i class="mdi mdi-format-line-spacing"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                            <span class="mdi mdi-menu"></span>
-                        </button>
-                    </div>
-                </nav>
+              <li class="nav-item nav-logout d-none d-lg-block">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-power"></i>
+                </a>
+              </li>
+              <li class="nav-item nav-settings d-none d-lg-block">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-format-line-spacing"></i>
+                </a>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </nav>
         {/* <!-- partial --> */}
         <div class="container-fluid page-body-wrapper">
           {/* <!-- partial:../../partials/_sidebar.html --> */}
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                        <ul class="nav">
-                            <li class="nav-item nav-profile">
-                                <a href="#" class="nav-link">
-                                    <div class="nav-profile-image">
-                                        <img src="https://caillouetland.com/wp-content/uploads/2017/07/avatar-blank.png" alt="profile" />
-                                        <span class="login-status online"></span>
-                                        {/* <!--change to offline or busy as needed--> */}
-                                    </div>
-                                    <div class="nav-profile-text d-flex flex-column">
-                                        <span class="font-weight-bold mb-2">{name1}</span>
-                                        <span class="text-secondary text-small">Admin</span>
-                                    </div>
-                                    <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../dashboard">
-                                    <span class="menu-title">Dashboard</span>
-                                    <i class="mdi mdi-home menu-icon"></i>
-                                </a>
-                            </li>
-                            {/* <li class="nav-item">
+            <ul class="nav">
+              <li class="nav-item nav-profile">
+                <a href="#" class="nav-link">
+                  <div class="nav-profile-image">
+                    <img src="https://caillouetland.com/wp-content/uploads/2017/07/avatar-blank.png" alt="profile" />
+                    <span class="login-status online"></span>
+                    {/* <!--change to offline or busy as needed--> */}
+                  </div>
+                  <div class="nav-profile-text d-flex flex-column">
+                    <span class="font-weight-bold mb-2">{name1}</span>
+                    <span class="text-secondary text-small">Admin</span>
+                  </div>
+                  <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../dashboard">
+                  <span class="menu-title">Dashboard</span>
+                  <i class="mdi mdi-home menu-icon"></i>
+                </a>
+              </li>
+              {/* <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                                     <span class="menu-title">Basic UI Elements</span>
                                     <i class="menu-arrow"></i>
@@ -250,31 +277,31 @@ const AddUser = () => {
                                     </ul>
                                 </div>
                             </li> */}
-                            <li class="nav-item">
-                                <a class="nav-link" href="../Users">
-                                    <span class="menu-title">Users</span>
-                                    <i class="mdi mdi-contacts menu-icon"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../Posts">
-                                    <span class="menu-title">Posts</span>
-                                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/comments">
-                                    <span class="menu-title">Comments</span>
-                                    <i class="mdi mdi-comment menu-icon"></i>
-                                </a>
-                            </li>
-                            {/* <li class="nav-item">
+              <li class="nav-item">
+                <a class="nav-link" href="../Users">
+                  <span class="menu-title">Users</span>
+                  <i class="mdi mdi-contacts menu-icon"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Posts">
+                  <span class="menu-title">Posts</span>
+                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/comments">
+                  <span class="menu-title">Comments</span>
+                  <i class="mdi mdi-comment menu-icon"></i>
+                </a>
+              </li>
+              {/* <li class="nav-item">
                                 <a class="nav-link" href="">
                                     <span class="menu-title">Tables</span>
                                     <i class="mdi mdi-table-large menu-icon"></i>
                                 </a>
                             </li> */}
-                            {/* <li class="nav-item">
+              {/* <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                                     <span class="menu-title">Sample Pages</span>
                                     <i class="menu-arrow"></i>
@@ -288,7 +315,7 @@ const AddUser = () => {
                                     </ul>
                                 </div>
                             </li> */}
-                            {/* <li class="nav-item sidebar-actions">
+              {/* <li class="nav-item sidebar-actions">
                                 <span class="nav-link">
                                     <div class="border-bottom">
                                         <h6 class="font-weight-normal mb-3">Projects</h6>
@@ -305,8 +332,8 @@ const AddUser = () => {
                                     </div>
                                 </span>
                             </li> */}
-                        </ul>
-                    </nav>
+            </ul>
+          </nav>
           {/* <!-- partial --> */}
           <div class="main-panel">
             <div class="content-wrapper">
@@ -354,32 +381,61 @@ const AddUser = () => {
                 </div> */}
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
-                    <div class="card-body">
+                    <div class="card-body col-md-12">
                       {/* <h4 class="card-title">Add A User</h4> */}
                       <p class="card-description"> Fill the following information to add a new verified user </p>
-                      <form class="forms-sample" onSubmit={handdleSubmit}>
-                        <div class="form-group row">
-                          <label for="exampleInputUsername2" class="col-sm-3 col-form-label">User Name</label>
+                      <form class="forms-sample" onSubmit={handleSubmit}  >
+                        <div class=" row">
+                          <label >User Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username" name='name' value={name} onChange={handdleInput}/>
+                            <input type="text" class="form-control" placeholder="Username" onChange={(e) => setUser((prev) => ({ ...prev, name: e.target.value }))
+                            } name="name" value={user.name} required />
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                        <div class=" row">
+                          <label  >Email</label>
                           <div class="col-sm-9">
-                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" name='email' value={email} onChange={handdleInput}/>
+                            <input type="email" class="form-control" placeholder="Email" name='email' onChange={(e) =>
+                              setUser((prev) => ({
+                                ...prev,
+                                email: e.target.value,
+                              }))
+                            }
+                              value={user.email}
+                              required />
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <label for="exampleInputMobile" class="col-sm-3 col-form-label">Phone</label>
+                        <div class=" row">
+                          <label  >Password</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number"  name='phone' value={phone} onChange={handdleInput}/>
+                            <input type="password" class="form-control" placeholder="Password" name='password' onChange={(e) =>
+                              setUser((prev) => ({
+                                ...prev,
+                                password: e.target.value,
+                              }))
+                            }
+                              value={user.password}
+                              required />
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <label for="exampleInputMobile" class="col-sm-3 col-form-label">Image</label>
+                        <div class=" row">
+                          <label >Phone</label>
                           <div class="col-sm-9">
-                            <input type="file" class="form-control" id="exampleInputMobile" placeholder="image"  name='image' value={image} onChange={handdleInput}/>
+                            <input type="text" class="form-control" placeholder="Mobile number" name='phone' onChange={(e) =>
+                              setUser((prev) => ({
+                                ...prev,
+                                phone: e.target.value,
+                              }))
+                            }
+                              value={user.phone}
+                              required />
+                          </div>
+                        </div>
+                        <div class=" row">
+                          <label >Image</label>
+                          <div class="col-sm-9">
+                            <input type="file" class="form-control" placeholder="image" name='image' onChange={handleImage}
+                              required />
                           </div>
                         </div>
                         {/* <div class="form-group row">
@@ -395,19 +451,18 @@ const AddUser = () => {
                           </div>
                         </div> */}
                         <div class="form-check form-check-flat form-check-primary">
-                          <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input"/> Remember me </label>
+
                         </div>
-                        <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                        <button class="btn btn-light" onClick={() => { nav('/Users') }}>Go Back</button>
+                        <button style={{ float: 'right' }} type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                        <button style={{ float: 'right' }} class="btn btn-light mr-3" onClick={() => { navigate('/Users') }}>Go Back</button>
                       </form>
                     </div>
                   </div>
                 </div>
-                
-                  
-              
-                
+
+
+
+
               </div>
             </div>
             {/* <!-- content-wrapper ends --> */}
@@ -438,7 +493,7 @@ const AddUser = () => {
         <Button variant='contained' color="primary" onClick={() => { nav('/Users') }}> Go Back </Button>
 
 
-      </Box> */}  
+      </Box> */}
 
 
     </div>

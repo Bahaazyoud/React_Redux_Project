@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, loadUsers } from './redux/actions';
+import swal from 'sweetalert';
+
 import axios from "axios";
 
 
@@ -32,16 +34,25 @@ const ShowUsers = () => {
     useEffect(() => {
 
         dispatch(loadUsers());
-
+         
     }, []);
 
     const handleDelete = (id) => {
 
-        if (window.confirm("Are you sure you want to delete this user?")) {
-            dispatch(deleteUser(id));
+        if (swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })) {  dispatch(deleteUser(id));
+            
+
+            
             
 
         }
+       
 
 
 

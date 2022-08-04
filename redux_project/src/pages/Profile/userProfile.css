@@ -1,0 +1,14 @@
+.loadMore {
+  position: relative;
+}
+.loadMore .dellBtn {
+  content: "Delete";
+  right: 0px;
+  color: red;
+  position: absolute;
+  z-index: 222;
+  padding: 10px;
+  top: 2px;
+  cursor: pointer;
+  background-color: transparent;
+}

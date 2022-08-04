@@ -131,4 +131,8 @@ class PostController extends Controller
          $app->delete();
          return redirect()->back()->with('success','Post has been ignored');
     }
+    public function dell($id)
+    {
+        Post::destroy($id);
+    }
 }

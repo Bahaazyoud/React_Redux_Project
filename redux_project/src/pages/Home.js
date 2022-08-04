@@ -82,18 +82,20 @@ export const Home = () => {
               </li>
               <li className="profile">
                 <a href="/profile">Profile</a>
-                <ul>
-                  <li>
-                    <a href="/login" title>
-                      Login
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/register" title>
-                      Create an account
-                    </a>
-                  </li>
-                </ul>
+                {!sessionStorage.getItem("user_id") && (
+                  <ul>
+                    <li>
+                      <a href="/login" title>
+                        Login
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/register" title>
+                        Create an account
+                      </a>
+                    </li>
+                  </ul>
+                )}
               </li>
             </ul>
           </div>

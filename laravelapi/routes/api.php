@@ -54,6 +54,7 @@ Route::get('single_post/{id}' ,[PostController::class ,'single_post' ]);
 // http://127.0.0.1:8000/api/post/1
 
 // http://127.0.0.1:8000/api/post/1
+Route::delete('post/{id}',[PostController::class , 'dell']);
 
 //comments routes
 Route::post('comment',[CommentController::class, 'store']);
